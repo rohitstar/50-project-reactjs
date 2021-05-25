@@ -1,3 +1,10 @@
+import Applause from '../sounds/applause.mp3'
+import Boo from '../sounds/boo.mp3'
+import Gasp from '../sounds/gasp.mp3'
+import Tada from '../sounds/tada.mp3'
+import Victory from '../sounds/victory.mp3'
+import Wrong from '../sounds/wrong.mp3'
+
 export const IMAGE_DATA = {
   image_data: [
     {
@@ -80,6 +87,29 @@ export const SCROLL_CONTENT = {
     },
     {
       content: 'Roshan',
+    },
+  ],
+}
+
+export const SOUND_BOARD = {
+  sound_board: [
+    {
+      sound: Applause,
+    },
+    {
+      sound: Boo,
+    },
+    {
+      sound: Gasp,
+    },
+    {
+      sound: Tada,
+    },
+    {
+      sound: Victory,
+    },
+    {
+      sound: Wrong,
     },
   ],
 }

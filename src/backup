@@ -1,0 +1,320 @@
+import React, { useState, useEffect, useRef } from 'react'
+import './split-landing-page.css'
+// import { SCROLL_CONTENT } from '../../constants/imageConstant'
+
+const SplitLandingPage = () => {
+  const OneRef = useRef(null)
+  const TwoRef = useRef(null)
+
+  //   const [hovered, setHovered] = useState(false)
+  const [isLeft, setIsLeft] = useState(false)
+  const [isRight, setIsRight] = useState(false)
+
+  const mouseLeftEnterChangeHandler = () => {
+    console.log('mouse enter left')
+    setIsLeft(true)
+  }
+
+  const mouseLeftLeaveChangeHandler = () => {
+    console.log('mouse leave left')
+    setIsLeft(false)
+  }
+
+  const mouseRightEnterChangeHandler = () => {
+    console.log('mouse enter right')
+    setIsRight(false)
+  }
+
+  const mouseRightLeaveChangeHandler = () => {
+    console.log('mouse leave right')
+    setIsRight(true)
+  }
+
+  useEffect(() => {
+    const nodeOne = OneRef.current
+    const nodeTwo = TwoRef.current
+    if (nodeOne) {
+      nodeOne.addEventListener('mouseenter', mouseLeftEnterChangeHandler)
+      nodeOne.addEventListener('mouseleave', mouseLeftLeaveChangeHandler)
+      return () => {
+        nodeOne.removeEventListener('mouseenter', mouseLeftEnterChangeHandler)
+        nodeOne.removeEventListener('mouseleave', mouseLeftLeaveChangeHandler)
+      }
+    }
+    if (nodeTwo) {
+      nodeTwo.addEventListener('mouseenter', mouseRightEnterChangeHandler)
+      nodeTwo.addEventListener('mouseleave', mouseRightLeaveChangeHandler)
+      return () => {
+        nodeTwo.removeEventListener('mouseenter', mouseRightEnterChangeHandler)
+        nodeTwo.removeEventListener('mouseleave', mouseRightLeaveChangeHandler)
+      }
+    }
+  }, [OneRef.current, TwoRef.current])
+
+  return (
+    <div className="App-split-landing-page">
+      <div
+        // ref={ref}
+        onMouseEnter={mouseLeftEnterChangeHandler}
+        onMouseLeave={mouseLeftLeaveChangeHandler}
+        className="container-split-landing-page"
+      >
+        <div
+          ref={OneRef}
+          className={`split left ${isLeft ? 'hover-right' : 'hover-left'}`}
+        >
+          <h1 className="split-heading">Play Rammy Game</h1>
+          <a href="#" className="btn-split">
+            Buy Now
+          </a>
+        </div>
+        <div
+          ref={TwoRef}
+          className={`split right ${isRight ? 'hover-right' : 'hover-left'}`}
+        >
+          <h1 className="split-heading">XBox Series Now</h1>
+          <a href="#" className="btn-split">
+            Buy Now
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default SplitLandingPage
+
+
+
+
+///////// form-wave ///////////
+
+import React, { useState, useEffect, useRef } from 'react'
+import './form-wave-animation.css'
+import { useTrail, animated as a } from 'react-spring'
+// import { SCROLL_CONTENT } from '../../constants/imageConstant'
+
+const items = ['Email', 'Password']
+const config = { mass: 5, tension: 2000, friction: 200 }
+
+const FormWaveAnimation = () => {
+  //   const [hovered, setHovered] = useState(false)
+  const [toggle, set] = useState(true)
+  const trail = useTrail(items.length, {
+    config,
+    // opacity: toggle ? 1 : 0,
+    x: toggle ? 0 : -10,
+    // height: toggle ? 80 : 0
+    // from: { opacity: 0, x: 20, height: 0 }
+  })
+
+  return (
+    <div className="App-split-landing-page">
+      <div className="container-form-wave">
+        <h1>Please Login</h1>
+        <div class="form">
+          {trail.map(({ x, height, ...rest }, index) => (
+            <div class="form-control">
+              <a.div
+                key={items[index]}
+                // className="trails-text"
+                style={{
+                  ...rest,
+                  transform: x.interpolate((x) => `translate3d(0,${x}px,0)`),
+                }}
+              >
+                <label className="label-wave" style={{ height }}>
+                  {items[index]}
+                </label>
+              </a.div>
+              <input
+                onClick={() => set((state) => !state)}
+                type="text"
+                required
+              />
+            </div>
+          ))}
+          {/* <div class="form-control">
+            <input onClick={() => set((state) => !state)} type="password" required />
+            <label>Password</label>
+          </div> */}
+          <button class="btn-wave">Login</button>
+          <p class="text-msg">
+            Don't have any account?<a href="#">Register</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default FormWaveAnimation
+
+
+////////// split landing animation //////////
+
+import React, { useState, useEffect, useRef } from 'react'
+import './split-landing-page.css'
+// import { SCROLL_CONTENT } from '../../constants/imageConstant'
+
+const SplitLandingPage = () => {
+  const ref = useRef()
+  const refed = useRef()
+
+  const [hovered, setHovered] = useState(false)
+  const [ishovered, setIsHovered] = useState(true)
+
+  const mouseLeftEnterChangeHandler = () => {
+    console.log('mouse enter left')
+    setHovered(true)
+  }
+
+  const mouseLeftLeaveChangeHandler = () => {
+    console.log('mouse leave left')
+    setHovered(false)
+  }
+
+  const mouseRightEnterChangeHandler = () => {
+    console.log('mouse enter right')
+    setIsHovered(false)
+  }
+
+  const mouseRightLeaveChangeHandler = () => {
+    console.log('mouse leave right')
+    setIsHovered(true)
+  }
+
+  useEffect(
+    () => {
+      const node = ref.current
+      if (node) {
+        node.addEventListener('mouseenter', mouseLeftEnterChangeHandler)
+        node.addEventListener('mouseleave', mouseLeftLeaveChangeHandler)
+        return () => {
+          node.removeEventListener('mouseenter', mouseLeftEnterChangeHandler)
+          node.removeEventListener('mouseleave', mouseLeftLeaveChangeHandler)
+        }
+      }
+    },
+    [ref.current] // Recall only if ref changes
+  )
+
+  useEffect(
+    () => {
+      const noded = refed.current
+      if (noded) {
+        noded.addEventListener('mouseenter', mouseRightEnterChangeHandler)
+        noded.addEventListener('mouseleave', mouseRightLeaveChangeHandler)
+        return () => {
+          noded.removeEventListener('mouseenter', mouseRightEnterChangeHandler)
+          noded.removeEventListener('mouseleave', mouseRightLeaveChangeHandler)
+        }
+      }
+    },
+    [refed.current] // Recall only if ref changes
+  )
+
+  return (
+    <div className="App-split-landing-page">
+      <div
+        ref={ref}
+        // onMouseEnter={mouseEnterChangeHandler}
+        // onMouseLeave={mouseLeaveChangeHandler}
+        // className={`container-split-landing-page ${
+        //   hovered ? 'hover-right' : 'hover-left'
+        // }`}
+        className="container-split-landing-page"
+      >
+        <div
+          // className="split left"
+          className={`split left ${hovered ? 'hover-right' : 'hover-left'}`}
+        >
+          <h1 className="split-heading">Play Rammy Game</h1>
+          <a href="#" className="btn-split">
+            Buy Now
+          </a>
+        </div>
+        <div
+          // className="split right"
+          className={`split right ${hovered ? 'hover-right' : 'hover-left'}`}
+        >
+          <h1 className="split-heading">XBox Series Now</h1>
+          <a href="#" className="btn-split">
+            Buy Now
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default SplitLandingPage
+
+
+
+//////////////// old split landing animation ////////////
+
+import React, { useState, useEffect, useRef } from 'react'
+import './split-landing-page.css'
+// import { SCROLL_CONTENT } from '../../constants/imageConstant'
+
+const SplitLandingPage = () => {
+  const ref = useRef(null)
+  const [hovered, setHovered] = useState(false)
+
+  const mouseEnterChangeHandler = () => {
+    console.log('mouse enter')
+    setHovered(true)
+  }
+
+  const mouseLeaveChangeHandler = () => {
+    console.log('mouse leave')
+    setHovered(false)
+  }
+
+  useEffect(
+    () => {
+      const node = ref.current
+      if (node) {
+        node.addEventListener('mouseenter', mouseEnterChangeHandler)
+        node.addEventListener('mouseleave', mouseLeaveChangeHandler)
+        return () => {
+          node.removeEventListener('mouseenter', mouseEnterChangeHandler)
+          node.removeEventListener('mouseleave', mouseLeaveChangeHandler)
+        }
+      }
+    },
+    [ref.current] // Recall only if ref changes
+  )
+
+  return (
+    <div className="App-split-landing-page">
+      <div
+        ref={ref}
+        // onMouseEnter={mouseEnterChangeHandler}
+        // onMouseLeave={mouseLeaveChangeHandler}
+        className={`container-split-landing-page ${
+          hovered ? 'hover-right' : 'hover-left'
+        }`}
+      >
+        <div className="split left">
+          <h1 className="split-heading">Play Rammy Game</h1>
+          <a href="#" className="btn-split">
+            Buy Now
+          </a>
+        </div>
+        <div className="split right">
+          <h1 className="split-heading">XBox Series Now</h1>
+          <a href="#" className="btn-split">
+            Buy Now
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default SplitLandingPage
+
+
+
