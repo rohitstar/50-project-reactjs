@@ -10,6 +10,10 @@ import ScrollAnimation from './components/Scroll-animation/scroll-animation'
 import SplitLandingPage from './components/Split-landing-page/split-landing-page'
 import FormWaveAnimation from './components/Form-wave-animation/form-wave-animation'
 import SoundBoard from './components/Sound-board/sound-board'
+import DadJokes from './components/Dad-jokes/dad-joke'
+import EventKeyCode from './components/Event-key-codes/event-key-code'
+import FAQCollapse from './components/FAQ-collapse/faq-collapse'
+import RandomChoicePicker from './components/Random-choice-picker/random-choice-picker'
 
 function App() {
   return (
@@ -54,6 +58,22 @@ function App() {
 
         <Route path="/sound-board">
           <SoundBoard />
+        </Route>
+
+        <Route path="/dad-joke">
+          <DadJokes />
+        </Route>
+
+        <Route path="/event-key-code">
+          <EventKeyCode />
+        </Route>
+
+        <Route path="/faq-collapse">
+          <FAQCollapse />
+        </Route>
+
+        <Route path="/random-choice-picker">
+          <RandomChoicePicker />
         </Route>
       </Switch>
     </Router>

@@ -95,21 +95,52 @@ export const SOUND_BOARD = {
   sound_board: [
     {
       sound: Applause,
+      label: 'Applause',
     },
     {
       sound: Boo,
+      label: 'Boo',
     },
     {
       sound: Gasp,
+      label: 'Gasp',
     },
     {
       sound: Tada,
+      label: 'Tada',
     },
     {
       sound: Victory,
+      label: 'Victory',
     },
     {
       sound: Wrong,
+      label: 'Wrong',
+    },
+  ],
+}
+
+export const FAQ_COLLAPSE = {
+  faq_collapse: [
+    {
+      question: 'Q1. Why shouldnt we trust atoms?',
+      answer: 'Ans. They make up everything|',
+    },
+    {
+      question: 'Q2. Why shouldnt we trust atoms?',
+      answer: 'Ans. They make up everything|',
+    },
+    {
+      question: 'Q3. Why shouldnt we trust atoms?',
+      answer: 'Ans. They make up everything|',
+    },
+    {
+      question: 'Q4. Why shouldnt we trust atoms?',
+      answer: 'Ans. They make up everything|',
+    },
+    {
+      question: 'Q5. Why shouldnt we trust atoms?',
+      answer: 'Ans. They make up everything|',
     },
   ],
 }

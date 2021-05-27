@@ -14,6 +14,10 @@ const Home = () => {
         <Link to="/split-landing-page">07 Split Landing Page</Link>
         <Link to="/form-wave-animation">08 Form Wave Animation</Link>
         <Link to="/sound-board">09 Sound Board</Link>
+        <Link to="/dad-joke">10 Dad Jokes</Link>
+        <Link to="/event-key-code">11 Event Key Code</Link>
+        <Link to="/faq-collapse">12 FAQ Collapse</Link>
+        <Link to="/random-choice-picker">13 Random Choice Picker</Link>
       </div>
     </>
   )
