@@ -17,7 +17,7 @@ import RandomChoicePicker from './components/Random-choice-picker/random-choice-
 import AnimatedNavigation from './components/Animated-navigation/animation-navigation'
 import IncrementingCounter from './components/Incrementing-counter/incrementing-counter'
 import DrinkWater from './components/Drink-water/drink-water'
-import MovieApp from './components/Movie-app/movie-app'
+// import MovieApp from './components/Movie-app/movie-app'
 import SliderBackground from './components/Background-slider/background-slider'
 import ClockTheme from './components/Clock-theme/clock-theme'
 import ButtonRippleEffect from './components/Button-ripple-effect/button-ripple-effect'
@@ -31,7 +31,7 @@ import GithubProfile from './components/github-profile/github-profile'
 import ToastsNotification from './components/Toast-notification/toast-notification'
 
 import AutoTextEffect from './components/Auto-text-effect/auto-text-effect'
-import PasswordGenerator from './components/Password-generator/password-generator'
+// import PasswordGenerator from './components/Password-generator/password-generator'
 import Checkboxes from './components/Checkboxes/checkboxes'
 import NoteApp from './components/Note-app/note-app'
 import AnimationCountdown from './components/Animation-countdown/animation-countdown'
@@ -125,9 +125,9 @@ function App() {
           <DrinkWater />
         </Route>
 
-        <Route path="/movie-app">
+        {/* <Route path="/movie-app">
           <MovieApp />
-        </Route>
+        </Route> */}
 
         <Route path="/background-slider">
           <SliderBackground />
@@ -177,9 +177,9 @@ function App() {
           <AutoTextEffect />
         </Route>
 
-        <Route path="/password-generator">
+        {/* <Route path="/password-generator">
           <PasswordGenerator />
-        </Route>
+        </Route> */}
 
         <Route path="/checkboxes">
           <Checkboxes />
