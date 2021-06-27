@@ -1,30 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import './movie-app.css'
+const API_URL =
+  'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1'
+const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
+// const SEARCH_API =
+//   'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query='
 
 const MovieApp = () => {
   const [isMovie, setIsMovie] = useState([])
-  const [searchValue, setSearchValue] = useState()
+  // const [searchValue, setSearchValue] = useState()
   const [q, setQ] = useState('')
 
-  const API_URL =
-    'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1'
-  const IMG_PATH = 'https://image.tmdb.org/t/p/w1280'
-  const SEARCH_API =
-    'https://api.themoviedb.org/3/search/movie?api_key=3fd2be6f0c70a2a598f084ddfb75487c&query="'
-
   useEffect(async () => {
-    // const apiUrl =
-    //   'https://api.themoviedb.org/3/discover/movie?sort_by=popularity.desc&api_key=3fd2be6f0c70a2a598f084ddfb75487c&page=1'
-    // fetch(apiUrl)
-    //   .then((response) => response.json())
-    //   .then((data) => console.log('This is your data', data.results)
-    //   )
-
-    const res = await fetch(API_URL)
-    const data = await res.json()
-    // console.log(data.results)
-    setIsMovie(data.results)
-  }, [setIsMovie])
+    async function fetchData() {
+      const res = await fetch(API_URL)
+      const data = await res.json()
+      // console.log(data.results)
+      setIsMovie(data.results)
+    }
+    fetchData()
+  }, [])
 
   function getVoteRate(vote) {
     if (vote >= 8) {
@@ -36,17 +31,16 @@ const MovieApp = () => {
     }
   }
 
-  //   form.addEventListener('submit', (e) =>
-  const submitChangeHandler = (e) => {
-    e.preventDefault()
-    const searchTeam = searchValue
-    if (searchTeam && searchTeam !== '') {
-      setSearchValue(SEARCH_API + searchTeam)
-      searchValue = ''
-    } else {
-      window.location.reload()
-    }
-  }
+  // const submitChangeHandler = (e) => {
+  //   e.preventDefault()
+  //   // const searchTeam = searchValue
+  //   // if (searchTeam && searchTeam !== '') {
+  //   //   setSearchValue(SEARCH_API + searchTeam)
+  //   //   searchValue = ''
+  //   // } else {
+  //   //   window.location.reload()
+  //   // }
+  // }
 
   function search(items) {
     return items.filter(
@@ -55,24 +49,10 @@ const MovieApp = () => {
     )
   }
 
-  //   const handleSearchInputChanges = (e) => {
-  //     setSearchValue(e.target.value)
-  //   }
-
-  //   const resetInputField = () => {
-  //     setSearchValue('')
-  //   }
-
-  //   const callSearchFunction = (e) => {
-  //     e.preventDefault()
-  //     setIsMovie(searchValue)
-  //     resetInputField()
-  //   }
-
   return (
     <div className="App-movie-app">
       <header className="header-movie-app">
-        <div id="form" onSubmit={submitChangeHandler}>
+        <div id="form">
           <input
             type="text"
             value={q}

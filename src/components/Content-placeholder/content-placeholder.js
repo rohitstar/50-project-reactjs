@@ -1,6 +1,11 @@
 import React, { useState } from 'react'
 import './content-placeholder.css'
 
+const imgData =
+  'https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80'
+
+const profileImgData = 'https://randomuser.me/api/portraits/men/45.jpg'
+
 const ContentPlaceholder = () => {
   const [header, setHeader] = useState()
   const [title, setTitle] = useState()
@@ -12,14 +17,10 @@ const ContentPlaceholder = () => {
   const [animated_bg_texts, setAnimated_bg_texts] = useState(true)
 
   const getData = () => {
-    setHeader(
-      'https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80'
-    )
+    setHeader(imgData)
     setTitle('Lorem ipsum dolor sit')
     setExcerpt('Lorem ipsum dolor sit nam in, assumenda accusantium at!')
-    setProfileImg(
-      <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="profile" />
-    )
+    setProfileImg(profileImgData)
     setName('Jone Doe')
     setDate('Jun 04, 2021')
     setAnimated_bgs(false)
@@ -35,7 +36,7 @@ const ContentPlaceholder = () => {
           className={`card-header ${animated_bgs ? 'animated-bg' : ''}`}
           id="header"
         >
-          <img src={header} alt="Image" />
+          <img src={header} alt="getImage" />
         </div>
 
         <div className="card-container">
@@ -77,7 +78,7 @@ const ContentPlaceholder = () => {
               className={`profile-img ${animated_bgs ? 'animated-bg' : ''}`}
               id="profile_img"
             >
-              {profileImg}
+              <img src={profileImg} alt="profile" />
             </div>
             <div className="author-info">
               <strong
