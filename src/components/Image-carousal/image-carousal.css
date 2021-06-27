@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.App-image-carousals {
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.img-carousal {
+  width: 500px;
+  height: 500px;
+  object-fit: cover;
+}
+
+.container-carousel {
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  height: 540px;
+  width: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.image-container {
+  display: flex;
+  transform: translateX(0);
+  transition: transform 0.5s ease-in-out;
+}
+
+.buttons-container-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-btnned {
+  color: #fff;
+  border: none;
+  padding: 0.5rem;
+  cursor: pointer;
+  width: 49.5%;
+}
+
+.btn-btnned-prev {
+  background-color: rgb(127, 7, 247);
+}
+
+.btn-btnned-next {
+  background-color: rgb(92, 180, 9);
+}
+
+.btn-btnned:hover {
+  opacity: 0.9;
+}
+
+.btn-btnned:focus {
+  outline: none;
+}

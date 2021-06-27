@@ -1,0 +1,94 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+.App-note-app {
+  background-color: #7bdaf3;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  /* padding-top: 3rem; */
+  height: 100vh;
+}
+
+.add {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  background-color: #9ec862;
+  color: #fff;
+  border: none;
+  border-radius: 3px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+
+.add-input {
+  position: fixed;
+  top: 1.1rem;
+  right: 6rem;
+  border-radius: 3px;
+  /* border-color: #9ec862; */
+  padding: 0.4rem 1rem;
+  display: none;
+}
+
+.add:active {
+  transform: scale(0.98);
+}
+
+.note {
+  /* margin-top: 6rem; */
+  background-color: #fff;
+  box-shadow: 0 0 10px 4px rgba(0, 0, 0, 0.1);
+  height: 300px;
+  width: 300px;
+  overflow-y: scroll;
+}
+
+.tools {
+  background-color: #9ec862;
+  display: flex;
+  justify-content: flex-end;
+  border-radius: 5px 5px 0 0;
+  padding: 0.5rem;
+  margin-top: 6rem;
+}
+
+.tools-btn button {
+  color: #9ec862;
+  font-size: 20px;
+  background-color: #fff;
+  border: none;
+}
+
+.tools button {
+  background-color: transparent;
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.note textarea {
+  outline: none;
+  font-family: inherit;
+  font-size: 0.8rem;
+  border: none;
+  height: 400px;
+  width: 100%;
+  padding: 20px;
+}
+
+/* .main {
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+} */

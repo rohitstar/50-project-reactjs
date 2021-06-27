@@ -15,12 +15,12 @@
   height: 100vh;
 }
 
-.search {
+.search-hidden {
   position: relative;
   height: 50px;
 }
 
-.search .input {
+.search-hidden .input-hidden {
   background-color: #fff;
   border: 0;
   font-size: 18px;
@@ -31,7 +31,7 @@
   border-radius: 10px 0 0 10px;
 }
 
-.btn-search {
+.btn-search-hidden {
   top: 0;
   left: 0;
   position: absolute;
@@ -44,15 +44,15 @@
   transition: transform 0.3s ease;
 }
 
-.btn-search:focus,
-.input:focus {
+.btn-search-hidden:focus,
+.input-hidden:focus {
   outline: none;
 }
 
-.search.active .input {
+.search-hidden.active .input-hidden {
   width: 200px;
 }
 
-.search.active .btn-search {
+.search-hidden.active .btn-search-hidden {
   transform: translateX(198px);
 }

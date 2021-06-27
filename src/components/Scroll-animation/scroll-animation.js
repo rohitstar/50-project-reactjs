@@ -3,7 +3,6 @@ import './scroll-animation.css'
 import { SCROLL_CONTENT } from '../../constants/imageConstant'
 
 const ScrollAnimation = () => {
-  //   const inputRef = useRef(null)
   const ourRef = useRef(null)
 
   const [show, setShow] = useState(false)

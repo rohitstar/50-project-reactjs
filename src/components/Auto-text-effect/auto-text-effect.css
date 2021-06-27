@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.App-auto-text-effect {
+  background: #7d5fff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  color: #fff;
+}
+
+.speed {
+  position: absolute;
+  bottom: 20px;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 10px 20px;
+  font-size: 18px;
+  border-radius: 10px;
+}
+
+.speedInput {
+  width: 50px;
+  padding: 5px;
+  font-size: 18px;
+  background-color: #7d5fff;
+  border: none;
+  text-align: center;
+  color: #fff;
+  border-radius: 10px;
+}
+
+.speedInput:focus {
+  outline: none;
+}

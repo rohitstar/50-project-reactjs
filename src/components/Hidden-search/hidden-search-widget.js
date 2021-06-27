@@ -12,9 +12,9 @@ const HiddenSearch = () => {
 
   return (
     <div className="App-hidden">
-      <div className={`search ${selected ? 'active' : ''}`}>
-        <input type="text" class="input" placeholder="Search...." />
-        <button onClick={openChangeHandler} class="btn-search">
+      <div className={`search-hidden ${selected ? 'active' : ''}`}>
+        <input type="text" class="input-hidden" placeholder="Search...." />
+        <button onClick={openChangeHandler} class="btn-search-hidden">
           <FontAwesomeIcon icon={faSearch} />
         </button>
       </div>

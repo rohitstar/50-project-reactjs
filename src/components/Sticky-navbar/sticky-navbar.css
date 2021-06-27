@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;400&display=swap');
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+.App-sticky-navbar {
+  font-family: 'Poppins', sans-serif;
+  color: #222;
+  padding-bottom: 50px;
+}
+
+.nav-sticky-web {
+  position: fixed;
+  background-color: #222;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-sticky-web .container-sticky {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-sticky-web ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+}
+
+.nav-sticky-web a {
+  padding: 7px 15px;
+  text-decoration: none;
+  color: #fff;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-sticky-web.active {
+  background-color: #fff;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.nav-sticky-web.active a {
+  color: #000;
+}
+
+.nav-sticky-web.active .container-sticky {
+  padding: 10px 0;
+}
+
+.nav-sticky-web a.current,
+.nav-sticky-web a:hover {
+  color: green;
+  font-weight: bold;
+}
+
+.container-sticky {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-sticky {
+  background-image: url('https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80');
+  height: 100vh;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center bottom;
+  display: flex;
+  color: #fff;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  margin-bottom: 20px;
+  z-index: -2;
+}
+
+.hero-sticky::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: -1;
+}
+
+.hero-sticky h1 {
+  font-size: 46px;
+  margin: -20px 0 20px;
+}
+
+.hero-sticky p {
+  font-size: 20px;
+  letter-spacing: 1.2px;
+}
+
+.content-sticky h2,
+.content-sticky h3 {
+  font-size: 150%;
+  margin: 20px 0;
+}
+
+.content-sticky p {
+  color: #555;
+  line-height: 30px;
+  letter-spacing: 1.2px;
+}

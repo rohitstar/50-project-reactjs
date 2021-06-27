@@ -318,3 +318,1827 @@ export default SplitLandingPage
 
 
 
+
+///////// incrementing counter ///////////
+
+
+import React, { useState, useEffect } from 'react'
+import './incrementing-counter.css'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faYoutube,
+  faFacebook,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons'
+
+const IncrementingCounter = () => {
+  // const [selected, setSelected] = useState(false)
+  // const [count, setCounter] = useState(0)
+  const [count, setCount] = useState(0)
+  const [countInTimeout, setCountInTimeout] = useState(0)
+
+
+
+
+
+
+  useEffect(() => {
+    setTimeout(() => {
+      setCountInTimeout(count) // count is 0 here
+    }, 3000)
+    setCount(5) // Update count to be 5 after timeout is scheduled
+  }, [])
+
+  // const getCounterChangeHandler = () => {
+  //   // setCounter((prevCounter) => prevCounter + 1)
+  // }
+
+  return (
+    <div className="App-incrementing-counter">
+      <div class="counter-container">
+        <div>
+          <FontAwesomeIcon icon={faTwitter} size="3x" />
+        </div>
+        <div class="counter" data-target="15000">
+          15000
+        </div>
+        <span>Twitter Followers</span>
+      </div>
+
+      <div class="counter-container">
+        <div>
+          <FontAwesomeIcon icon={faYoutube} size="3x" />
+        </div>
+        <div class="counter" data-target="5000">
+          5000
+        </div>
+        <span>YouTube Subscriber</span>
+      </div>
+
+      <div class="counter-container">
+        <div>
+          <FontAwesomeIcon icon={faFacebook} size="3x" />
+        </div>
+        <div class="counter" data-target="7500">
+          7500
+        </div>
+        <span>Facebook</span>
+      </div>
+    </div>
+  )
+}
+
+export default IncrementingCounter
+
+
+
+////////////////////// drawing App //////////////////
+
+
+import React, { useRef, useEffect, useState } from 'react'
+import './drawing-app.css'
+
+const DrawingApp = (props) => {
+  const canvasRef = useRef(null)
+  const [isOffsetX, setIsOffsetX] = useState()
+  const [isOffsetY, setIsOffsetY] = useState()
+  const [isOffsetX2, setIsOffsetX2] = useState()
+  const [isOffsetY2, setIsOffsetY2] = useState()
+
+  const [isPressed, setIsPressed] = useState(false)
+
+  let color = '#000'
+  //   let isPress = false
+  let size = 20
+  let x
+  let y
+  //   let x2
+  //   let y2
+
+  const mouseDownChangeHandler = (e) => {
+    // isPress = true
+    setIsPressed(true)
+    setIsOffsetX(e.nativeEvent.offsetX)
+    setIsOffsetY(e.nativeEvent.offsetY)
+
+    // x = e.nativeEvent.offsetX
+    // y = e.nativeEvent.offsetY
+    console.log(isPressed, isOffsetX, isOffsetY)
+  }
+
+  const mouseUpChangeHandler = () => {
+    // isPress = false
+    setIsPressed(false)
+    setIsOffsetX(undefined)
+    setIsOffsetY(undefined)
+
+    // x = undefined
+    // y = undefined
+    console.log(isPressed, isOffsetX, isOffsetY)
+  }
+
+  const mouseMoveChangeHandler = (e) => {
+    if (isPressed) {
+      setIsOffsetX2(e.nativeEvent.offsetX)
+      setIsOffsetY2(e.nativeEvent.offsetY)
+
+      // drawCircle(isOffsetX2, isOffsetY2)
+      // drawLine(isOffsetX, isOffsetY, isOffsetX2, isOffsetY2)
+
+      console.log(isOffsetX2, isOffsetY2)
+      setIsOffsetX(isOffsetX2)
+      setIsOffsetY(isOffsetY2)
+    }
+  }
+
+  const drawCircle = (x, y, ctx) => {
+    ctx.beginPath()
+    ctx.arc(x, y, size, 0, Math.PI * 2)
+    ctx.fillStyle = color
+    ctx.fill()
+  }
+
+  const drawLine = (x1, y1, x2, y2, ctx) => {
+    ctx.beginPath()
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.strokeStyle = color
+    ctx.lineWidth = size * 2
+    ctx.stroke()
+  }
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const ctx = canvas.getContext('2d')
+
+    //Our draw come here
+    drawCircle(100, 100, ctx)
+    drawLine(300, 300, 300, 500, ctx)
+  }, [])
+
+  return (
+    <div className="App-drawing-app">
+      <canvas
+        onMouseDown={mouseDownChangeHandler}
+        onMouseUp={mouseUpChangeHandler}
+        onMouseMove={mouseMoveChangeHandler}
+        ref={canvasRef}
+        {...props}
+        height="800px"
+        width="800px"
+      />
+      <div className="toolbox">
+        <button id="decrease">-</button>
+        <span id="size">20</span>
+        <button id="increase">+</button>
+        <input id="color" type="color" />
+        <button id="clear">X</button>
+      </div>
+    </div>
+  )
+}
+
+export default DrawingApp
+
+
+
+/////////---------//////////////
+
+
+import React, { useRef, useEffect, useState } from 'react'
+import './drawing-app.css'
+
+const DrawingApp = (props) => {
+  const canvasRef = useRef(null)
+  const [isOffset, setIsOffset] = useState()
+
+  let color = '#000'
+  let isPress = false
+  let size = 20
+  let x
+  let y
+  let x2
+  let y2
+
+  const mouseDownChangeHandler = (e) => {
+    isPress = true
+    setIsOffset()
+    x = e.nativeEvent.offsetX
+    y = e.nativeEvent.offsetY
+    console.log(isPress, x, y)
+  }
+
+  const mouseUpChangeHandler = () => {
+    isPress = false
+    x = undefined
+    y = undefined
+    console.log(isPress, x, y)
+  }
+
+  const mouseMoveChangeHandler = (e) => {
+    if (isPress) {
+      x2 = e.nativeEvent.offsetX
+      y2 = e.nativeEvent.offsetY
+
+      console.log(x2, y2)
+
+      //   drawCircle(x2, y2)
+      //   drawLine(x, y, x2, y2)
+
+      x = x2
+      y = y2
+    }
+
+    // console.log(isPress, x, y)
+  }
+
+  const drawCircle = (x, y, ctx) => {
+    ctx.beginPath()
+    ctx.arc(x, y, size, 0, Math.PI * 2)
+    ctx.fillStyle = color
+    ctx.fill()
+  }
+
+  const drawLine = (x1, y1, x2, y2, ctx) => {
+    ctx.beginPath()
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.strokeStyle = color
+    ctx.lineWidth = size * 2
+    ctx.stroke()
+  }
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const context = canvas.getContext('2d')
+
+    //Our draw come here
+    // drawCircle(100, 100, ctx)
+    // drawLine(300, 300, 300, 500, ctx)
+    drawCircle(x2, y2, context)
+    drawLine(x, y, x2, y2, context)
+  }, [drawCircle, drawLine])
+
+  return (
+    <div className="App-drawing-app">
+      <canvas
+        onMouseDown={mouseDownChangeHandler}
+        onMouseUp={mouseUpChangeHandler}
+        onMouseMove={mouseMoveChangeHandler}
+        ref={canvasRef}
+        {...props}
+        height="800px"
+        width="800px"
+      />
+      <div className="toolbox">
+        <button id="decrease">-</button>
+        <span id="size">20</span>
+        <button id="increase">+</button>
+        <input id="color" type="color" />
+        <button id="clear">X</button>
+      </div>
+    </div>
+  )
+}
+
+export default DrawingApp
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////
+import React, { useRef, useEffect, useState } from 'react'
+import './drawing-app.css'
+
+const DrawingApp = () => {
+  const canvasRef = useRef(null)
+  const [isOffset, setIsOffset] = useState()
+
+  let color = '#000'
+  let isPress = false
+  let size = 20
+  let x
+  let y
+  let x2
+  let y2
+
+  const mouseDownChangeHandler = (e) => {
+    isPress = true
+    setIsOffset()
+    x = e.nativeEvent.offsetX
+    y = e.nativeEvent.offsetY
+    console.log(isPress, x, y)
+  }
+
+  const mouseUpChangeHandler = () => {
+    isPress = false
+    x = undefined
+    y = undefined
+    console.log(isPress, x, y)
+  }
+
+  const mouseMoveChangeHandler = (e) => {
+    if (isPress) {
+      x2 = e.nativeEvent.offsetX
+      y2 = e.nativeEvent.offsetY
+
+      console.log(x2, y2)
+
+      //   drawCircle(x2, y2)
+      //   drawLine(x, y, x2, y2)
+
+      x = x2
+      y = y2
+    }
+
+    // console.log(isPress, x, y)
+  }
+
+  const drawCircle = (x, y, ctx) => {
+    ctx.beginPath()
+    ctx.arc(x, y, size, 0, Math.PI * 2)
+    ctx.fillStyle = color
+    ctx.fill()
+  }
+
+  const drawLine = (x1, y1, x2, y2, ctx) => {
+    ctx.beginPath()
+    ctx.moveTo(x1, y1)
+    ctx.lineTo(x2, y2)
+    ctx.strokeStyle = color
+    ctx.lineWidth = size * 2
+    ctx.stroke()
+  }
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    const context = canvas.getContext('2d')
+
+    // drawCircle(100, 100, ctx)
+    // drawLine(300, 300, 300, 500, ctx)
+
+    drawCircle(x2, y2, context)
+    drawLine(x, y, x2, y2, context)
+  }, [drawCircle, drawLine])
+
+  return (
+    <div className="App-drawing-app">
+      <canvas
+        onMouseDown={mouseDownChangeHandler}
+        onMouseUp={mouseUpChangeHandler}
+        onMouseMove={mouseMoveChangeHandler}
+        ref={canvasRef}
+        // {...props}
+        height="800px"
+        width="800px"
+      />
+      <div className="toolbox">
+        <button id="decrease">-</button>
+        <span id="size">20</span>
+        <button id="increase">+</button>
+        <input id="color" type="color" />
+        <button id="clear">X</button>
+      </div>
+    </div>
+  )
+}
+
+export default DrawingApp
+
+
+
+
+
+import React, { useEffect, useState } from 'react'
+import './content-placeholder.css'
+
+const ContentPlaceholder = () => {
+  const [header, setHeader] = useState()
+  const [title, setTitle] = useState()
+  const [excerpt, setExcerpt] = useState()
+  const [profileImg, setProfileImg] = useState()
+  const [name, setName] = useState()
+  const [date, setDate] = useState()
+  const [animated_bgs, setAnimated_bgs] = useState(false)
+  const [animated_bg_texts, setAnimated_bg_texts] = useState()
+
+  const getData = () => {
+    setHeader(
+      <img
+        src="https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80"
+        alt="Image"
+      />
+    )
+    setTitle('Lorem ipsum dolor sit')
+    setExcerpt('Lorem ipsum dolor sit nam in, assumenda accusantium at!')
+    setProfileImg(
+      <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="profile" />
+    )
+    setName('Jone Doe')
+    setDate('Jun 04, 2021')
+    setAnimated_bgs(!animated_bgs)
+    setAnimated_bg_texts(!animated_bg_texts)
+  }
+
+  setTimeout(getData, 2500)
+
+  return (
+    <div className="App-content-placeholder">
+      <div className="card">
+        <div
+          className={`card-header ${animated_bgs ? 'animated-bg' : ''}`}
+          id="header"
+        >
+          {header}
+        </div>
+
+        <div className="card-container">
+          <h3
+            className={`card-title ${animated_bgs ? 'animated-bg' : ''} ${
+              animated_bg_texts ? 'animated-bg-text' : ''
+            }`}
+            id="title"
+          >
+            {title}
+          </h3>
+          <p className="card-excerpt" id="excerpt">
+            {excerpt}
+            <span
+              className={`${animated_bgs ? 'animated-bg' : ''} ${
+                animated_bg_texts ? 'animated-bg-text' : ''
+              }`}
+            >
+              &nbsp;
+            </span>
+            <span
+              className={`${animated_bgs ? 'animated-bg' : ''} ${
+                animated_bg_texts ? 'animated-bg-text' : ''
+              }`}
+            >
+              &nbsp;
+            </span>
+            <span
+              className={`${animated_bgs ? 'animated-bg' : ''} ${
+                animated_bg_texts ? 'animated-bg-text' : ''
+              }`}
+            >
+              &nbsp;
+            </span>
+          </p>
+
+          <div className="author">
+            <div
+              className={`profile-img  ${animated_bgs ? 'animated-bg' : ''} ${
+                animated_bg_texts ? 'animated-bg-text' : ''
+              }`}
+              id="profile_img"
+            >
+              {profileImg}
+            </div>
+            <div className="author-info">
+              <strong
+                className={`${animated_bgs ? 'animated-bg' : ''} ${
+                  animated_bg_texts ? 'animated-bg-text' : ''
+                }`}
+                id="name"
+              >
+                {name}
+              </strong>
+              <small
+                className={`${animated_bgs ? 'animated-bg' : ''} ${
+                  animated_bg_texts ? 'animated-bg-text' : ''
+                }`}
+                id="date"
+              >
+                {date}
+              </small>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ContentPlaceholder
+
+
+
+
+
+
+
+
+
+
+
+//////////////////////////////////////////
+
+import React, { useState, useEffect } from 'react'
+import './note-app.css'
+
+const NoteApp = () => {
+  const [notes, setNotes] = useState([])
+  const [noteEditing, setNoteEditing] = useState('')
+
+  const addNote = (e) => {
+    // e.preventDefault()
+    const newNote = {
+      id: Math.random().toString(36).substr(2, 9),
+      text: e.target.note.value,
+    }
+    setNotes([...notes, newNote])
+    e.target.note.value = ''
+  }
+
+  const deleteNote = (idToDelete) => {
+    const filteredNotes = notes.filter((note) => note.id !== idToDelete)
+    setNotes(filteredNotes)
+  }
+
+  const submitEdits = (event, idToEdit) => {
+    event.preventDefault()
+    const updatedNotes = notes.map((note) => {
+      if (note.id === idToEdit) {
+        return {
+          id: note.id,
+          text: event.target.note.value,
+        }
+      } else {
+        return note
+      }
+    })
+    setNotes(updatedNotes)
+    setNoteEditing('')
+  }
+
+  useEffect(() => {
+    const json = localStorage.getItem('notes')
+    const savedNotes = JSON.parse(json)
+    if (savedNotes) {
+      setNotes(savedNotes)
+    }
+  }, [])
+
+  return (
+    <div className="App-note-app">
+      <form onSubmit={addNote}>
+        {/* <input type="Submit" className="add" id="add" /> */}
+        {/* <i className="fas fa-plus"></i> Add note */}
+        {/* </input> */}
+        <imput type="text" name="note" />
+        <input type="Submit" />
+      </form>
+      {notes.map((note) => (
+        <div key={note.id}>
+          {note.id !== noteEditing ? (
+            <div>{note.text}</div>
+          ) : (
+            <form onSubmit={(e) => submitEdits(e, note.id)}>
+              <textarea name="note" defaultValue={note.text}></textarea>
+              <button type="Submit"> Submit Edits</button>
+            </form>
+          )}
+          {/* <button onClick={() => deleteNote(note.id)}>delete</button>
+          <button onClick={() => setNoteEditing(note.id)}>edit</button> */}
+          <div className="tools">
+            <button onClick={() => setNoteEditing(note.id)} className="edit">
+              <i className="fas fa-edit"></i>
+            </button>
+            <button onClick={() => deleteNote(note.id)} className="delete">
+              <i className="fas fa-trash-alt"></i>
+            </button>
+          </div>
+          {/* <div className={`main ${note ? '' : 'hidden'}`}></div>
+          <textarea className={`${note ? 'hidden' : ''}`}></textarea> */}
+        </div>
+      ))}
+    </div>
+  )
+}
+
+export default NoteApp
+
+
+
+
+//////////////////////////////////////////////////////////////////////////
+
+import React, { useEffect, useState } from 'react'
+import './image-carousal.css'
+
+const ImageData = [
+  {
+    id: 1,
+    src: 'https://images.unsplash.com/photo-1599394022918-6c2776530abb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1458&q=80',
+    name: 'first-image',
+  },
+  {
+    id: 2,
+    src: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+    name: 'second-image',
+  },
+  {
+    id: 3,
+    src: 'https://images.unsplash.com/photo-1599423300746-b62533397364?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+    name: 'third-image',
+  },
+  {
+    id: 4,
+    src: 'https://images.unsplash.com/photo-1599561046251-bfb9465b4c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1492&q=80',
+    name: 'fourth-image',
+  },
+]
+
+const ImageCarousal = () => {
+  //   let idx = 0
+  let interval = setInterval(run, 2000)
+  const [selected, setSelected] = useState(0)
+  const [imgs, setImgs] = useState()
+
+  function run() {
+    // idx++
+    setSelected((data) => data + 1)
+    changeImage()
+  }
+
+  function changeImage() {
+    if (selected > ImageData.length - 1) {
+      setSelected(0)
+    } else if (selected < 0) {
+      setSelected(ImageData.length - 1)
+    }
+
+    setImgs(`translateX(${-selected * 500}px)`)
+    console.log(selected)
+  }
+
+  function resetInterval() {
+    clearInterval(interval)
+    interval = setInterval(run, 2000)
+  }
+
+  function getRightChnageHandler() {
+    setSelected((data) => data + 1)
+    changeImage()
+    resetInterval()
+  }
+
+  function getLeftChnageHandler() {
+    setSelected((data) => data - 1)
+    changeImage()
+    resetInterval()
+  }
+  //   useEffect(() => {}, [])
+
+  return (
+    <div className="App-image-carousals">
+      <div className="container-carousel">
+        <div className="image-container" style={{ transform: imgs }} id="imgs">
+          {ImageData.map((data, index) => (
+            <img
+              //   className={`img-carousal ${
+              //     currentSlider === index ? 'active' : ''
+              //   }`}
+              className="img-carousal"
+              key={index}
+              src={data.src}
+              alt={data.name}
+            />
+          ))}
+        </div>
+
+        <div className="buttons-container-btn">
+          <button
+            onClick={getLeftChnageHandler}
+            id="left"
+            className="btn-btnned btn-btnned-prev"
+          >
+            Prev
+          </button>
+          <button
+            onClick={getRightChnageHandler}
+            id="right"
+            className="btn-btnned btn-btnned-next"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ImageCarousal
+
+
+
+
+
+/////////////idx///////////////
+
+import React, { useEffect, useState } from 'react'
+import useSlider from "./useSlider";
+import './image-carousal.css'
+
+const ImageData = [
+  {
+    id: 1,
+    src: 'https://images.unsplash.com/photo-1599394022918-6c2776530abb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1458&q=80',
+    name: 'first-image',
+  },
+  {
+    id: 2,
+    src: 'https://images.unsplash.com/photo-1593642632559-0c6d3fc62b89?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+    name: 'second-image',
+  },
+  {
+    id: 3,
+    src: 'https://images.unsplash.com/photo-1599423300746-b62533397364?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80',
+    name: 'third-image',
+  },
+  {
+    id: 4,
+    src: 'https://images.unsplash.com/photo-1599561046251-bfb9465b4c44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1492&q=80',
+    name: 'fourth-image',
+  },
+]
+
+const ImageCarousal = () => {
+  let idx = 0
+  let interval = setInterval(run, 2000)
+  //   const [selected, setSelected] = useState()
+  const [imgs, setImgs] = useState()
+
+  //   console.log(ImageData.src)
+
+  function run() {
+    idx++
+    changeImage()
+  }
+
+  function changeImage() {
+    if (idx > ImageData.length - 1) {
+      idx = 0
+    } else if (idx < 0) {
+      idx = ImageData.length - 1
+    }
+
+    setImgs(-idx * 500)
+    // console.log(idx)
+  }
+
+  function resetInterval() {
+    clearInterval(interval)
+    interval = setInterval(run, 2000)
+  }
+
+  function getRightChnageHandler() {
+    idx++
+    changeImage()
+    resetInterval()
+  }
+
+  function getLeftChnageHandler() {
+    idx--
+    changeImage()
+    resetInterval()
+  }
+
+  return (
+    <div className="App-image-carousals">
+      <div className="container-carousel">
+        <div className="image-container" style={{ transform: imgs }} id="imgs">
+          {ImageData.map((data, index) => (
+            <img
+              //   className={`img-carousal ${
+              //     currentSlider === index ? 'active' : ''
+              //   }`}
+              className="img-carousal"
+              key={index}
+              src={data.src}
+              alt={data.name}
+            />
+          ))}
+        </div>
+
+        <div className="buttons-container-btn">
+          <button
+            onClick={getLeftChnageHandler}
+            id="left"
+            className="btn-btnned btn-btnned-prev"
+          >
+            Prev
+          </button>
+          <button
+            onClick={getRightChnageHandler}
+            id="right"
+            className="btn-btnned btn-btnned-next"
+          >
+            Next
+          </button>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default ImageCarousal
+
+
+
+
+
+
+
+
+/////////////////////////// pokemon ////////////////////////////
+
+
+import React, { useState } from 'react'
+import './pokedex.css'
+
+const Pokedex = () => {
+  const [pokemonData, setPokemonData] = useState()
+  const pokemon_count = 150
+  const colors = {
+    fire: '#FDDFDF',
+    grass: '#DEFDE0',
+    electric: '#FCF7DE',
+    water: '#DEF3FD',
+    ground: '#f4e7da',
+    rock: '#d5d5d4',
+    fairy: '#fceaff',
+    poison: '#98d7a5',
+    bug: '#f8d5a3',
+    dragon: '#97b3e6',
+    psychic: '#eaeda1',
+    flying: '#F5F5F5',
+    fighting: '#E6E0D4',
+    normal: '#F5F5F5',
+  }
+
+  const fetchPokemons = async () => {
+    for (let i = 1; i <= pokemon_count; i++) {
+      await getPokemon(i)
+    }
+  }
+
+  const getPokemon = async (id) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const res = await fetch(url)
+    const data = await res.json()
+    getPokemonData(data)
+    // console.log(data)
+  }
+
+  fetchPokemons()
+
+  const getPokemonData = (poke) => {
+    poke.map((data, index) => (
+      <div
+        key={index}
+        className="pokemon"
+        style={{ backgroundColor: 'rgb(222, 253, 224)' }}
+      >
+        <div className="poke-img-container">
+          <img
+            // src="https://pokeres.bastionbot.org/images/pokemon/1.png"
+            src={`https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`}
+            alt="pokemon"
+          />
+        </div>
+
+        <div className="poke-info">
+          <span className="poke-number">#001</span>
+          <h3 className="poke-name">{data.name}</h3>
+          <small className="poke-type">
+            Type: <span>grass</span>
+          </small>
+        </div>
+      </div>
+    ))
+  }
+
+  return (
+    <div className="App-pokedex">
+      <h1 className="poke-heading">Pokedex</h1>
+      <div className="poke-container" id="poke-container">
+        {getPokemonData()}
+        {/* {pokemonData.map((poke, index) => (
+          <div
+            key={index}
+            className="pokemon"
+            style={{ backgroundColor: 'rgb(222, 253, 224)' }}
+          >
+            <div className="poke-img-container">
+              <img
+                // src="https://pokeres.bastionbot.org/images/pokemon/1.png"
+                src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`}
+                alt="pokemon"
+              />
+            </div>
+
+            <div className="poke-info">
+              <span className="poke-number">#001</span>
+              <h3 className="poke-name">{poke.name}</h3>
+              <small className="poke-type">
+                Type: <span>grass</span>
+              </small>
+            </div>
+          </div>
+        ))} */}
+      </div>
+    </div>
+  )
+}
+
+export default Pokedex
+
+
+
+/////////////////////////////////pokedex fetchdata///////////////////////////////////////////
+
+
+
+import React, { useEffect, useState } from 'react'
+import './pokedex.css'
+
+const Pokedex = () => {
+  const [pokemonData, setPokemonData] = useState([])
+  const pokemon_count = 20
+  const colors = {
+    fire: '#FDDFDF',
+    grass: '#DEFDE0',
+    electric: '#FCF7DE',
+    water: '#DEF3FD',
+    ground: '#f4e7da',
+    rock: '#d5d5d4',
+    fairy: '#fceaff',
+    poison: '#98d7a5',
+    bug: '#f8d5a3',
+    dragon: '#97b3e6',
+    psychic: '#eaeda1',
+    flying: '#F5F5F5',
+    fighting: '#E6E0D4',
+    normal: '#F5F5F5',
+  }
+
+  //   const fetchPokemons = async () => {
+  //     for (let i = 1; i <= pokemon_count; i++) {
+  //       await getPokemon(i)
+  //     }
+  //   }
+
+  const getPokemon = async (id) => {
+    // const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const url = `https://pokeapi.co/api/v2/pokemon`
+    const res = await fetch(url)
+    const data = await res.json()
+    setPokemonData(data.results)
+    console.log(data.results, data)
+  }
+
+  const getPokemonDetails = async (data) => {
+    // const url = `https://pokeapi.co/api/v2/pokemon`
+    const res = await fetch(data)
+    // const data1 = await res.json()
+    // setPokemonData(data1)
+    console.log('getPokemonDetails', res)
+  }
+
+  useEffect(() => {
+    getPokemon()
+  }, [])
+
+  return (
+    <div className="App-pokedex">
+      <h1 className="poke-heading">Pokedex</h1>
+      <div className="poke-container" id="poke-container">
+        {pokemonData.length > 0 &&
+          pokemonData.map((data, index) => (
+            <div
+              onClick={() => {
+                getPokemonDetails(data)
+              }}
+              key={index}
+              className="pokemon"
+              style={{ backgroundColor: 'rgb(222, 253, 224)' }}
+            >
+              <div className="poke-img-container">
+                <img
+                  src={`https://pokeres.bastionbot.org/images/pokemon/${
+                    index + 1
+                  }.png`}
+                  // src={`https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`}
+                  alt="pokemon"
+                />
+              </div>
+
+              <div className="poke-info">
+                <span className="poke-number">#001</span>
+                <h3 className="poke-name">{data.name}</h3>
+                <small className="poke-type">
+                  Type: <span>grass</span>
+                </small>
+              </div>
+            </div>
+          ))}
+      </div>
+    </div>
+  )
+}
+
+export default Pokedex
+
+
+/////////////////////////////////////pokedex /////////////////
+
+import React, { useEffect, useState } from 'react'
+import './pokedex.css'
+
+const Pokedex = () => {
+  const [pokemonData, setPokemonData] = useState([])
+  const pokemon_count = 20
+  const colors = {
+    fire: '#FDDFDF',
+    grass: '#DEFDE0',
+    electric: '#FCF7DE',
+    water: '#DEF3FD',
+    ground: '#f4e7da',
+    rock: '#d5d5d4',
+    fairy: '#fceaff',
+    poison: '#98d7a5',
+    bug: '#f8d5a3',
+    dragon: '#97b3e6',
+    psychic: '#eaeda1',
+    flying: '#F5F5F5',
+    fighting: '#E6E0D4',
+    normal: '#F5F5F5',
+  }
+
+  const fetchPokemons = async () => {
+    for (let i = 1; i <= pokemon_count; i++) {
+      await getPokemon(i)
+    }
+  }
+
+  const getPokemon = async (id) => {
+    const url = `https://pokeapi.co/api/v2/pokemon/${id}`
+    const res = await fetch(url)
+    const data = await res.json()
+    getPokeData(data)
+    // console.log(data)
+  }
+
+  const getPokeData = (poke) => {
+    console.log('find Data', poke)
+    return (
+      <div
+        className="pokemon"
+        style={{ backgroundColor: 'rgb(222, 253, 224)' }}
+      >
+        <div className="poke-img-container">
+          <img
+            // src="https://pokeres.bastionbot.org/images/pokemon/1.png"
+            src={`https://pokeres.bastionbot.org/images/pokemon/${poke.id}.png`}
+            alt={poke.name}
+          />
+        </div>
+        <div className="poke-info">
+          <span className="poke-number">#001</span>
+          <h3 className="poke-name">{poke.name}</h3>
+          <small className="poke-type">
+            Type: <span>grass</span>
+          </small>
+        </div>
+      </div>
+    )
+  }
+
+  useEffect(() => {
+    fetchPokemons()
+  }, [])
+
+  return (
+    <div className="App-pokedex">
+      <h1 className="poke-heading">Pokedex</h1>
+      <div className="poke-container" id="poke-container">
+        {getPokeData}
+        {/* {pokemonData.map((data, index) => (
+          <div
+            key={index}
+            className="pokemon"
+            style={{ backgroundColor: 'rgb(222, 253, 224)' }}
+          >
+            <div className="poke-img-container">
+              <img
+                src="https://pokeres.bastionbot.org/images/pokemon/1.png"
+                // src={`https://pokeres.bastionbot.org/images/pokemon/${data.id}.png`}
+                alt="pokemon"
+              />
+            </div>
+
+            <div className="poke-info">
+              <span className="poke-number">#001</span>
+              <h3 className="poke-name">{data.name}</h3>
+              <small className="poke-type">
+                Type: <span>grass</span>
+              </small>
+            </div>
+          </div>
+        ))} */}
+      </div>
+    </div>
+  )
+}
+
+export default Pokedex
+
+
+
+
+//////////////////////////////custom range slider//////////////////////////////////////////
+
+import React, { useState } from 'react'
+import './custom-range-slider.css'
+
+const CustomRangeSlider = () => {
+  const [range, setRange] = useState()
+  const [valued, setValued] = useState(50)
+
+  const getlabelChangeHandler = (e) => {
+    const value = +e.target.value
+    const label = e.target.nextElementSibling
+
+    const range_width = getComputedStyle(e.target).getPropertyValue('width')
+    const label_width = getComputedStyle(label).getPropertyValue('width')
+
+    const num_width = +range_width.substring(0, range_width.length - 2)
+    const num_label_width = +label_width.substring(0, label_width.length - 2)
+
+    const max = +e.target.max
+    const min = +e.target.min
+
+    const left =
+      value * (num_width / max) -
+      num_label_width / 2 +
+      scale(value, min, max, 10, -10)
+
+    setRange(left)
+    setValued(value)
+    // console.log(left)
+  }
+
+  const scale = (num, in_min, in_max, out_min, out_max) => {
+    return ((num - in_min) * (out_max - out_min)) / (in_max - in_min) + out_min
+  }
+
+  return (
+    <div className="App-range-slider">
+      <h2 className="range-h2">Custom Range Slider</h2>
+      <div className="range-container">
+        <input
+          onClick={getlabelChangeHandler}
+          type="range"
+          id="range"
+          min="0"
+          max="100"
+        />
+        <label style={{ left: `${range}px` }} htmlFor="range">
+          {valued}
+        </label>
+      </div>
+    </div>
+  )
+}
+
+export default CustomRangeSlider
+
+
+
+
+
+
+
+
+
+
+/////////////////// Quiz App ////////////////////////
+
+
+import React, { useEffect, useState } from 'react'
+import './quiz-app.css'
+
+const quizData = [
+  {
+    question: 'Which language runs in a web browser?',
+    a: 'Java',
+    b: 'C',
+    c: 'Python',
+    d: 'JavaScript',
+    correct: 'd',
+  },
+  {
+    question: 'What does CSS stand for?',
+    a: 'Central Style Sheets',
+    b: 'Cascading Style Sheets',
+    c: 'Cascading Simple Sheets',
+    d: 'Cars SUVs Sailboats',
+    correct: 'b',
+  },
+  {
+    question: 'What does HTML stand for?',
+    a: 'Hypertext Markup Language',
+    b: 'Hypertext Markdown Language',
+    c: 'Hyperloop Machine Language',
+    d: 'Helicopters Terminals Motorboats Lamborginis',
+    correct: 'a',
+  },
+  {
+    question: 'What year was JavaScript launched?',
+    a: '1996',
+    b: '1995',
+    c: '1994',
+    d: 'none of the above',
+    correct: 'b',
+  },
+]
+
+const QuizApp = () => {
+  //   const [currentQuizDataSelect, setCurrentQuizDataSelect] = useState()
+  //   const [answerEl, setAnswerEl] = useState()
+  let currentQuiz = 0
+  let score = 0
+
+  //   const currentQuizData = quizData[currentQuiz]
+
+  return (
+    <div className="App-quiz">
+      <div className="quiz-container" id="quiz">
+        { quizData[0].map((data) => (
+          <div className="quiz-header">
+            <h2 className="quiz-h2" id="question">
+              {data.question}
+            </h2>
+
+            <ul>
+              <li>
+                <input type="radio" name="answer" id="a" className="answer" />
+                &nbsp;
+                <label htmlFor="a" id="a_text">
+                  {data.a}
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" name="answer" id="b" className="answer" />
+                &nbsp;
+                <label htmlFor="b" id="b_text">
+                  {data.b}
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" name="answer" id="c" className="answer" />
+                &nbsp;
+                <label htmlFor="c" id="c_text">
+                  {data.c}
+                </label>
+              </li>
+
+              <li>
+                <input type="radio" name="answer" id="d" className="answer" />
+                &nbsp;
+                <label htmlFor="d" id="d_text">
+                  {data.d}
+                </label>
+              </li>
+            </ul>
+          </div>
+        ))}
+
+        <button className="quiz-submit" id="submit">
+          Submit
+        </button>
+      </div>
+    </div>
+  )
+}
+
+export default QuizApp
+
+
+
+
+
+
+//////////////////////////////////////
+
+
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useEffect, useState } from 'react'
+import './testimonial-box.css'
+
+const testimonials = [
+  {
+    name: 'Miyah Myles',
+    position: 'Marketing',
+    photo:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6',
+    text: "I've worked with literally hundreds of HTML/CSS developers and I have to say the top spot goes to this guy. This guy is an amazing developer. He stresses on good, clean code and pays heed to the details. I love developers who respect each and every aspect of a throughly thought out design and do their best to put it in code. He goes over and beyond and transforms ART into PIXELS - without a glitch, every time.",
+  },
+  {
+    name: 'June Cha',
+    position: 'Software Engineer',
+    photo: 'https://randomuser.me/api/portraits/women/44.jpg',
+    text: 'This guy is an amazing frontend developer that delivered the task exactly how we need it, do your self a favor and hire him, you will not be disappointed by the work delivered. He will go the extra mile to make sure that you are happy with your project. I will surely work again with him!',
+  },
+  {
+    name: 'Iida Niskanen',
+    position: 'Data Entry',
+    photo: 'https://randomuser.me/api/portraits/women/68.jpg',
+    text: "This guy is a hard worker. Communication was also very good with him and he was very responsive all the time, something not easy to find in many freelancers. We'll definitely repeat with him.",
+  },
+  {
+    name: 'Renee Sims',
+    position: 'Receptionist',
+    photo: 'https://randomuser.me/api/portraits/women/65.jpg',
+    text: "This guy does everything he can to get the job done and done right. This is the second time I've hired him, and I'll hire him again in the future.",
+  },
+  {
+    name: 'Jonathan Nunfiez',
+    position: 'Graphic Designer',
+    photo: 'https://randomuser.me/api/portraits/men/43.jpg',
+    text: "I had my concerns that due to a tight deadline this project can't be done. But this guy proved me wrong not only he delivered an outstanding work but he managed to deliver 1 day prior to the deadline. And when I asked for some revisions he made them in MINUTES. I'm looking forward to work with him again and I totally recommend him. Thanks again!",
+  },
+  {
+    name: 'Sasha Ho',
+    position: 'Accountant',
+    photo:
+      'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb',
+    text: 'This guy is a top notch designer and front end developer. He communicates well, works fast and produces quality work. We have been lucky to work with him!',
+  },
+  {
+    name: 'Veeti Seppanen',
+    position: 'Director',
+    photo: 'https://randomuser.me/api/portraits/men/97.jpg',
+    text: 'This guy is a young and talented IT professional, proactive and responsible, with a strong work ethic. He is very strong in PSD2HTML conversions and HTML/CSS technology. He is a quick learner, eager to learn new technologies. He is focused and has the good dynamics to achieve due dates and outstanding results.',
+  },
+]
+
+const TestimonialBox = () => {
+//   const [index, setIndex] = useState(1)
+  let idx = 1
+
+  //   const { name, position, photo, text } = testimonials[idx]
+
+  function updateTestimonial() {
+    // setIndex((prev) => prev + 1)
+
+    idx++
+
+    if (idx > testimonials.length - 1) {
+      idx = 0
+    }
+
+    // console.log(idx, testimonials.length)
+  }
+
+  useEffect(() => {
+    setInterval(updateTestimonial(), 1000)
+  }, [])
+
+  return (
+    <div className="App-testimonial">
+      {testimonials.length > 0 &&
+        testimonials[idx].map((data, index) => (
+          <div key={index} className="testimonial-container">
+            <div className="progress-bar-testimonial"></div>
+            <div className="fa-quote-right fa-quote">
+              <FontAwesomeIcon icon={faQuoteRight} />
+            </div>
+            <div className="fa-quote-left fa-quote">
+              <FontAwesomeIcon icon={faQuoteLeft} />
+            </div>
+            <p className="testimonial">{data.text}</p>
+            <div className="user-testimonial">
+              <img
+                src={data.photo}
+                alt={data.name}
+                className="user-image-testimonial"
+              />
+              <div className="user-details-testimonial">
+                <h4 className="username-testimonial">{data.name}</h4>
+                <p className="role-testimonial">{data.position}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+    </div>
+  )
+}
+
+export default TestimonialBox
+
+\/
+//
+/\
+//
+\/
+
+//////////////////////////////////////////////////////////
+
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useEffect, useState } from 'react'
+import './testimonial-box.css'
+
+const testimonials = [
+  {
+    name: 'Miyah Myles',
+    position: 'Marketing',
+    photo:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6',
+    text: "I've worked with literally hundreds of HTML/CSS developers and I have to say the top spot goes to this guy. This guy is an amazing developer. He stresses on good, clean code and pays heed to the details. I love developers who respect each and every aspect of a throughly thought out design and do their best to put it in code. He goes over and beyond and transforms ART into PIXELS - without a glitch, every time.",
+  },
+  {
+    name: 'June Cha',
+    position: 'Software Engineer',
+    photo: 'https://randomuser.me/api/portraits/women/44.jpg',
+    text: 'This guy is an amazing frontend developer that delivered the task exactly how we need it, do your self a favor and hire him, you will not be disappointed by the work delivered. He will go the extra mile to make sure that you are happy with your project. I will surely work again with him!',
+  },
+  {
+    name: 'Iida Niskanen',
+    position: 'Data Entry',
+    photo: 'https://randomuser.me/api/portraits/women/68.jpg',
+    text: "This guy is a hard worker. Communication was also very good with him and he was very responsive all the time, something not easy to find in many freelancers. We'll definitely repeat with him.",
+  },
+  {
+    name: 'Renee Sims',
+    position: 'Receptionist',
+    photo: 'https://randomuser.me/api/portraits/women/65.jpg',
+    text: "This guy does everything he can to get the job done and done right. This is the second time I've hired him, and I'll hire him again in the future.",
+  },
+  {
+    name: 'Jonathan Nunfiez',
+    position: 'Graphic Designer',
+    photo: 'https://randomuser.me/api/portraits/men/43.jpg',
+    text: "I had my concerns that due to a tight deadline this project can't be done. But this guy proved me wrong not only he delivered an outstanding work but he managed to deliver 1 day prior to the deadline. And when I asked for some revisions he made them in MINUTES. I'm looking forward to work with him again and I totally recommend him. Thanks again!",
+  },
+  {
+    name: 'Sasha Ho',
+    position: 'Accountant',
+    photo:
+      'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb',
+    text: 'This guy is a top notch designer and front end developer. He communicates well, works fast and produces quality work. We have been lucky to work with him!',
+  },
+  {
+    name: 'Veeti Seppanen',
+    position: 'Director',
+    photo: 'https://randomuser.me/api/portraits/men/97.jpg',
+    text: 'This guy is a young and talented IT professional, proactive and responsible, with a strong work ethic. He is very strong in PSD2HTML conversions and HTML/CSS technology. He is a quick learner, eager to learn new technologies. He is focused and has the good dynamics to achieve due dates and outstanding results.',
+  },
+]
+
+const TestimonialBox = () => {
+  const [index, setIndex] = useState(0)
+  const [name, setName] = useState()
+  const [photo, setPhoto] = useState()
+  const [text, setText] = useState()
+  const [position, setPosition] = useState()
+
+  //   let idx = 1
+
+  function updateTestimonial() {
+    const { name, position, photo, text } = testimonials[index]
+    setName(name)
+    setPhoto(photo)
+    setText(text)
+    setPosition(position)
+    setIndex((prev) => prev + 1)
+
+    // idx++
+
+    if (index > testimonials.length - 1) {
+      index = 0
+    }
+
+    // console.log(idx, testimonials.length)
+  }
+
+  useEffect(() => {
+    setInterval(updateTestimonial(), 1000)
+  }, [])
+
+  return (
+    <div className="App-testimonial">
+      <div className="testimonial-container">
+        <div className="progress-bar-testimonial"></div>
+        <div className="fa-quote-right fa-quote">
+          <FontAwesomeIcon icon={faQuoteRight} />
+        </div>
+        <div className="fa-quote-left fa-quote">
+          <FontAwesomeIcon icon={faQuoteLeft} />
+        </div>
+        <p className="testimonial">{text}</p>
+        <div className="user-testimonial">
+          <img src={photo} alt={name} className="user-image-testimonial" />
+          <div className="user-details-testimonial">
+            <h4 className="username-testimonial">{name}</h4>
+            <p className="role-testimonial">{position}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+}
+
+export default TestimonialBox
+
+
+
+
+
+
+
+
+
+/////////////////////////////////////////////////////
+
+
+import { faQuoteLeft, faQuoteRight } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import React, { useEffect, useState } from 'react'
+import './testimonial-box.css'
+
+const testimonials = [
+  {
+    name: 'Miyah Myles',
+    position: 'Marketing',
+    photo:
+      'https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=200&fit=max&s=707b9c33066bf8808c934c8ab394dff6',
+    text: "I've worked with literally hundreds of HTML/CSS developers and I have to say the top spot goes to this guy. This guy is an amazing developer. He stresses on good, clean code and pays heed to the details. I love developers who respect each and every aspect of a throughly thought out design and do their best to put it in code. He goes over and beyond and transforms ART into PIXELS - without a glitch, every time.",
+  },
+  {
+    name: 'June Cha',
+    position: 'Software Engineer',
+    photo: 'https://randomuser.me/api/portraits/women/44.jpg',
+    text: 'This guy is an amazing frontend developer that delivered the task exactly how we need it, do your self a favor and hire him, you will not be disappointed by the work delivered. He will go the extra mile to make sure that you are happy with your project. I will surely work again with him!',
+  },
+  {
+    name: 'Iida Niskanen',
+    position: 'Data Entry',
+    photo: 'https://randomuser.me/api/portraits/women/68.jpg',
+    text: "This guy is a hard worker. Communication was also very good with him and he was very responsive all the time, something not easy to find in many freelancers. We'll definitely repeat with him.",
+  },
+  {
+    name: 'Renee Sims',
+    position: 'Receptionist',
+    photo: 'https://randomuser.me/api/portraits/women/65.jpg',
+    text: "This guy does everything he can to get the job done and done right. This is the second time I've hired him, and I'll hire him again in the future.",
+  },
+  {
+    name: 'Jonathan Nunfiez',
+    position: 'Graphic Designer',
+    photo: 'https://randomuser.me/api/portraits/men/43.jpg',
+    text: "I had my concerns that due to a tight deadline this project can't be done. But this guy proved me wrong not only he delivered an outstanding work but he managed to deliver 1 day prior to the deadline. And when I asked for some revisions he made them in MINUTES. I'm looking forward to work with him again and I totally recommend him. Thanks again!",
+  },
+  {
+    name: 'Sasha Ho',
+    position: 'Accountant',
+    photo:
+      'https://images.pexels.com/photos/415829/pexels-photo-415829.jpeg?h=350&auto=compress&cs=tinysrgb',
+    text: 'This guy is a top notch designer and front end developer. He communicates well, works fast and produces quality work. We have been lucky to work with him!',
+  },
+  {
+    name: 'Veeti Seppanen',
+    position: 'Director',
+    photo: 'https://randomuser.me/api/portraits/men/97.jpg',
+    text: 'This guy is a young and talented IT professional, proactive and responsible, with a strong work ethic. He is very strong in PSD2HTML conversions and HTML/CSS technology. He is a quick learner, eager to learn new technologies. He is focused and has the good dynamics to achieve due dates and outstanding results.',
+  },
+]
+
+const TestimonialBox = () => {
+  //   const [index, setIndex] = useState(0)
+  let idx = 1
+
+  //   const { name, position, photo, text } = testimonials[idx]
+
+  //   const currentTestimonial = testimonials[index]
+
+  //   console.log(testimonials.length)
+
+  //   function updateTestimonial() {
+  //     // setIndex((prev) => prev + 1)
+
+  //     idx++
+
+  //     if (idx > testimonials.length - 1) {
+  //       idx = 0
+  //     }
+
+  //     // console.log(idx, testimonials.length)
+  //   }
+
+  //   useEffect(() => {
+  //     setInterval(updateTestimonial(), 1000)
+  //   }, [])
+
+  return (
+    <div className="App-testimonial">
+      {testimonials.length > 0 &&
+        testimonials[idx].map((data, index) => (
+          <div key={index} className="testimonial-container">
+            <div className="progress-bar-testimonial"></div>
+            <div className="fa-quote-right fa-quote">
+              <FontAwesomeIcon icon={faQuoteRight} />
+            </div>
+            <div className="fa-quote-left fa-quote">
+              <FontAwesomeIcon icon={faQuoteLeft} />
+            </div>
+            <p className="testimonial">{data.text}</p>
+            <div className="user-testimonial">
+              <img
+                src={data.photo}
+                alt={data.name}
+                className="user-image-testimonial"
+              />
+              <div className="user-details-testimonial">
+                <h4 className="username-testimonial">{data.name}</h4>
+                <p className="role-testimonial">{data.position}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+    </div>
+  )
+}
+
+export default TestimonialBox
+
+
+
+
+
+
+
+
+/////////////////////////////////\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+
+
+
+import React, { useEffect, useState } from 'react'
+import './random-image-feed.css'
+
+const RandomImageFeed = () => {
+  const unsplashURL = 'https://source.unsplash.com/random/'
+  const rows = 5
+  const [randomImage, setRandomImage] = useState()
+
+  useEffect(() => {
+    // const container = document.querySelector('.random-image-container')
+
+    for (let i = 0; i < rows * 3; i++) {
+      //   console.log(`${unsplashURL}${getRandomSize()}`)
+      setRandomImage(
+        <img src={`${unsplashURL}${getRandomSize()}`} alt="image" />
+      )
+      console.log(randomImage)
+      //   const img = document.createElement('img')
+      //   img.src = `${unsplashURL}${getRandomSize()}`
+      //   container.appendChild(img)
+    }
+  }, [])
+
+  //   console.log(`${unsplashURL}${getRandomSize()}`)
+
+  function getRandomSize() {
+    // console.log(`${getRandomNr()}x${getRandomNr()}`)
+    return `${getRandomNr()}x${getRandomNr()}`
+  }
+
+  function getRandomNr() {
+    return Math.floor(Math.random() * 10) + 300
+  }
+
+  return (
+    <div className="App-testimonial">
+      <h1 className="title-random">Random Image Feed</h1>
+      <div className="random-image-container">
+        {/* <img src={`${unsplashURL}${getRandomSize()}`} alt="images" /> */}
+        {/* {randomImage} */}
+        {/* {randomImage.map((data) => (
+          <img src={data} alt="images" />
+        ))} */}
+      </div>
+    </div>
+  )
+}
+
+export default RandomImageFeed
+
+/////////???????????//////////??????????////////??????????????//////////////??????
+
+
+import React, { useEffect, useState } from 'react'
+import './random-image-feed.css'
+
+const RandomImageFeed = () => {
+  const unsplashURL = 'https://source.unsplash.com/random/'
+  const rows = 5
+  //   const [randomImage, setRandomImage] = useState()
+
+  //   useEffect(() => {
+  //     // const container = document.querySelector('.random-image-container')
+
+  //     for (let i = 0; i < rows * 3; i++) {
+  //       console.log(`${unsplashURL}${getRandomSize()}`)
+  //       setRandomImage(`${unsplashURL}${getRandomSize()}`)
+  //       console.log(randomImage)
+  //       //   const img = document.createElement('img')
+  //       //   img.src = `${unsplashURL}${getRandomSize()}`
+  //       //   container.appendChild(img)
+  //     }
+  //   }, [])
+
+  //   console.log(`${unsplashURL}${getRandomSize()}`)
+
+  function getRandomSize() {
+    // console.log(`${getRandomNr()}x${getRandomNr()}`)
+    return `${getRandomNr()}x${getRandomNr()}`
+  }
+
+  function getRandomNr() {
+    return Math.floor(Math.random() * 10) + 300
+  }
+
+  return (
+    <div className="App-testimonial">
+      <h1 className="title-random">Random Image Feed</h1>
+      <div className="random-image-container">
+        {() => {
+          for (let i = 0; i < rows * 3; i++) {
+            console.log(`${unsplashURL}${getRandomSize()}`)
+            rows.push(
+              <img src={`${unsplashURL}${getRandomSize()}`} alt="images" />
+            )
+          }
+          return rows
+        }}
+        {/* <img src={`${unsplashURL}${getRandomSize()}`} alt="images" /> */}
+        {/* {randomImage} */}
+        {/* {randomImage.map((data) => (
+          <img src={data} alt="images" />
+        ))} */}
+      </div>
+    </div>
+  )
+}
+
+export default RandomImageFeed
+
+///////////////////////?????????????????//////////?????????////??///??//??///
+
+
+
+import React, { useState } from 'react'
+import './toast-notification.css'
+
+const messages = ['Message One', 'Message Two', 'Message Three', 'Message Four']
+
+const ToastsNotification = () => {
+  const [toast, setToast] = useState('')
+  const [msg, setMsg] = useState(messages)
+
+  const createNotification = () => {
+    setMsg(toast)
+    // console.log(123)
+    // setToast(() => getRandomMessage())
+  }
+
+  // const getRandomMessage = () => {
+  //   // console.log(messages[Math.floor(Math.random() * messages.length)])
+  //   return messages[Math.floor(Math.random() * messages.length)]
+  // }
+
+  return (
+    <div className="toast-container">
+      <div id="toasts">
+        {/* <div className="toast-notific">{toast}</div> */}
+        {/* <div className="toast">Toast Number2</div> */}
+      </div>
+
+      <button onClick={createNotification} className="btn-notific" id="button">
+        Show Notification
+      </button>
+    </div>
+  )
+}
+
+export default ToastsNotification

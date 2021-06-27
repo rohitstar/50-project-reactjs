@@ -144,3 +144,11 @@ export const FAQ_COLLAPSE = {
     },
   ],
 }
+
+// export const EMPTY_DATA = {
+//   Empty_data: [
+//     {
+//       no: '1'
+//     },
+//   ]
+// }

@@ -24,6 +24,7 @@ const FAQCollapse = () => {
                   //   console.log(index)
                 }}
               />
+
               <FontAwesomeIcon
                 onClick={() => {
                   setSelected({ selected: index })

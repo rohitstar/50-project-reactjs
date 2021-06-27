@@ -8,10 +8,11 @@ export default class ExpendingCard extends React.Component {
   }
   render() {
     return (
-      <div className="Apps">
-        <div className="container">
+      <div className="Apps-expending">
+        <div className="container-expending">
           {IMAGE_DATA.image_data.map((data, index) => (
             <div
+              key={index}
               // className={`panel ${'active' === data.active ? 'active' : ''}`}
               className={`panel ${
                 this.state.selected == index ? 'active' : ''

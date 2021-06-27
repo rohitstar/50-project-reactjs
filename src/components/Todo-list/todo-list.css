@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+.App-todo-list {
+  background-color: #f5f5f5;
+  color: #444;
+  font-family: 'Roboto', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+.todo-h1 {
+  font-size: 10rem;
+  color: rgb(85, 144, 221);
+  opacity: 0.6;
+  text-align: center;
+}
+
+.form-todo {
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  max-width: 100%;
+  width: 400px;
+}
+
+.form-todo .input-todo {
+  border: none;
+  color: #444;
+  font-size: 2rem;
+  padding: 1rem 2rem;
+  display: block;
+  width: 100%;
+}
+
+.form-todo .input-todo::placeholder {
+  color: #d5d5d5;
+}
+
+.form-todo .input-todo:focus {
+  outline-color: rgb(85, 144, 221);
+}
+
+.form-todo .btn-todo-list {
+  border: none;
+  background-color: rgb(85, 144, 221);
+  /* color: ; */
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+.form-todo .todos-todo {
+  background-color: #fff;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+}
+
+.form-todo .todos-todo li {
+  border-top: 1px solid #e5e5e5;
+  cursor: pointer;
+  font-size: 1.5rem;
+  padding: 1rem 2rem;
+}
+
+.form-todo .todos-todo li.completed {
+  color: #b6b6b6;
+  text-decoration: line-through;
+}
+
+.small-todo {
+  text-align: center;
+  margin-top: 3rem;
+  color: #b6b6b6;
+}

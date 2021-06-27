@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 
-.Apps {
+.Apps-expending {
   font-family: 'Muli', sans-serif;
   display: flex;
   /* flex-direction: column; */
@@ -15,7 +15,7 @@
   height: 100vh;
 }
 
-.container {
+.container-expending {
   display: flex;
   width: 90vw;
 }
@@ -53,7 +53,7 @@
 }
 
 @media (max-width: 480px) {
-  .container {
+  .container-expending {
     width: 100vw;
   }
 

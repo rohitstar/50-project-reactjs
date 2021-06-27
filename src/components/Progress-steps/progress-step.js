@@ -27,7 +27,7 @@ const ProgressStep = () => {
   }
 
   return (
-    <div className="Apps">
+    <div className="Apps-progress">
       <div className="containing">
         <div className="progress-containing">
           <div
