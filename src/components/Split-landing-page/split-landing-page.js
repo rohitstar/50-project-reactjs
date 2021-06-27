@@ -17,20 +17,17 @@ const SplitLandingPage = () => {
     setHovered(false)
   }
 
-  useEffect(
-    () => {
-      const node = ref.current
-      if (node) {
-        node.addEventListener('mouseenter', mouseEnterChangeHandler)
-        node.addEventListener('mouseleave', mouseLeaveChangeHandler)
-        return () => {
-          node.removeEventListener('mouseenter', mouseEnterChangeHandler)
-          node.removeEventListener('mouseleave', mouseLeaveChangeHandler)
-        }
+  useEffect(() => {
+    const node = ref.current
+    if (node) {
+      node.addEventListener('mouseenter', mouseEnterChangeHandler)
+      node.addEventListener('mouseleave', mouseLeaveChangeHandler)
+      return () => {
+        node.removeEventListener('mouseenter', mouseEnterChangeHandler)
+        node.removeEventListener('mouseleave', mouseLeaveChangeHandler)
       }
-    },
-    [ref.current] // Recall only if ref changes
-  )
+    }
+  }, [])
 
   return (
     <div className="App-split-landing-page">

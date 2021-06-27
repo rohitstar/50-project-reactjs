@@ -2,33 +2,24 @@ import React, { useEffect } from 'react'
 import './random-image-feed.css'
 
 const RandomImageFeed = () => {
-  const unsplashURL = 'https://source.unsplash.com/random/'
-  const rows = 5
-  //   const [randomImage, setRandomImage] = useState()
-
   useEffect(() => {
+    const unsplashURL = 'https://source.unsplash.com/random/'
+    const rows = 5
     const container = document.querySelector('.random-image-container')
 
     for (let i = 0; i < rows * 3; i++) {
-      //   console.log(`${unsplashURL}${getRandomSize()}`)
-      //   setRandomImage(`${unsplashURL}${getRandomSize()}`)
-      //   console.log(randomImage)
       const img = document.createElement('img')
       img.src = `${unsplashURL}${getRandomSize()}`
       container.appendChild(img)
     }
+    function getRandomSize() {
+      return `${getRandomNr()}x${getRandomNr()}`
+    }
+
+    function getRandomNr() {
+      return Math.floor(Math.random() * 10) + 300
+    }
   }, [])
-
-  //   console.log(`${unsplashURL}${getRandomSize()}`)
-
-  function getRandomSize() {
-    // console.log(`${getRandomNr()}x${getRandomNr()}`)
-    return `${getRandomNr()}x${getRandomNr()}`
-  }
-
-  function getRandomNr() {
-    return Math.floor(Math.random() * 10) + 300
-  }
 
   return (
     <div className="App-testimonial">

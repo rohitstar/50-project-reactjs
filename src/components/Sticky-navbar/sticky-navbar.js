@@ -1,21 +1,21 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import './sticky-navbar.css'
 
 const StickyNavbar = () => {
   const [selected, setSelected] = useState(false)
 
-  useEffect(() => {
-    window.addEventListener('scroll', fixNav)
-    function fixNav() {
-      if (window.scrollY > 150) {
-        setSelected(!selected)
-      } else {
-        // nav.classList.remove('active')
-        setSelected(selected)
-      }
+  // useEffect(() => {
+  window.addEventListener('scroll', fixNav)
+  function fixNav() {
+    if (window.scrollY > 150) {
+      setSelected(!selected)
+    } else {
+      // nav.classList.remove('active')
+      setSelected(selected)
     }
-  }, [])
+  }
+  // }, [])
 
   return (
     <div className="App-sticky-navbar">
