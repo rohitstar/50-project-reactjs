@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './quiz-app.css'
 
 const quizData = [
@@ -43,6 +43,10 @@ const QuizApp = () => {
   //   const [score, setScore] = useState(0)
 
   const currentQuizData = quizData[currentQuiz]
+
+  const handleAnswerButtonClick = () => {
+    setCurrentQuiz(currentQuizData)
+  }
 
   return (
     <div className="App-quiz">
@@ -131,7 +135,7 @@ const QuizApp = () => {
         </div>
 
         <button
-          //   onClick={handleAnswerButtonClick}
+          onClick={handleAnswerButtonClick}
           className="quiz-submit"
           id="submit"
         >

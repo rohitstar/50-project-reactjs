@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import useSlider from './useSlider'
 import './image-carousal.css'
 
@@ -26,35 +26,12 @@ const ImageData = [
 ]
 
 const ImageCarousal = () => {
-  //   const [selected, setSelected] = useState(0)
-
-  const { offset, addItem, leftChangeHandler, rightChangeHandler } = useSlider({
+  const { offset, leftChangeHandler, rightChangeHandler } = useSlider({
     total: ImageData.length,
     enabled: true,
     useLoaded: false,
     speed: 3000,
   })
-
-  //   const leftChangeHandler = () => {
-  //     setSelected((prev) => prev - 1)
-
-  //     if (selected > 0) {
-  //       setSelected(selected - 1)
-  //     } else {
-  //       setSelected(ImageData.length - 1)
-  //     }
-  //     console.log(selected)
-  //   }
-
-  //   const rightChangeHandler = () => {
-  //     setSelected((prev) => prev + 1)
-  //     if (selected === ImageData.length - 1) {
-  //       setSelected(0)
-  //     } else {
-  //       setSelected(selected + 1)
-  //     }
-  //     console.log(selected)
-  //   }
 
   return (
     <div className="App-image-carousals">
@@ -63,15 +40,11 @@ const ImageCarousal = () => {
           className="image-container"
           style={{
             transform: `translate3d(-${offset * 500}px,0,0)`,
-            // width: `${slides.length * 300}px`
           }}
           id="imgs"
         >
           {ImageData.map((data, index) => (
             <img
-              //   className={`img-carousal ${
-              //     currentSlider === index ? 'active' : ''
-              //   }`}
               className="img-carousal"
               key={index}
               src={data.src}

@@ -3,10 +3,10 @@ import './github-profile.css'
 import axios from 'axios'
 
 const GithubProfile = () => {
-  const APIURL = 'https://api.github.com/users/'
+  // const APIURL = 'https://api.github.com/users/'
   const [username, setUsername] = useState()
   const [passData, setPassData] = useState([])
-  const [reposToCard, setReposToCard] = useState([])
+  // const [reposToCard, setReposToCard] = useState([])
 
   // const getUser = () => {
   //   return fetch(`https://api.github.com/users/${username}`)
@@ -24,7 +24,7 @@ const GithubProfile = () => {
       setPassData(data)
       getRepos(username)
     } catch (err) {
-      if (err.response.status == 404) {
+      if (err.response.status === 404) {
         createError('No Profile with the username')
       }
     }

@@ -2,6 +2,7 @@ import { faBars, faTimes } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import './netflix-navigation.css'
+import { Link } from 'react-router-dom'
 
 const NetflixNavigation = () => {
   const [selected, setSelected] = useState(false)
@@ -51,27 +52,27 @@ const NetflixNavigation = () => {
 
             <ul className="list-netflix">
               <li>
-                <a href="#">Teams</a>
+                <Link>Teams</Link>
               </li>
               <li>
-                <a href="#">Locations</a>
+                <Link>Locations</Link>
               </li>
               <li>
-                <a href="#">Life at Netflix</a>
+                <Link>Life at Netflix</Link>
               </li>
               <li>
                 <ul>
                   <li>
-                    <a href="#">Netflix culture memo</a>
+                    <Link>Netflix culture memo</Link>
                   </li>
                   <li>
-                    <a href="#">Work life balance</a>
+                    <Link>Work life balance</Link>
                   </li>
                   <li>
-                    <a href="#">Inclusion & diversity</a>
+                    <Link>Inclusion & diversity</Link>
                   </li>
                   <li>
-                    <a href="#">Blog</a>
+                    <Link>Blog</Link>
                   </li>
                 </ul>
               </li>

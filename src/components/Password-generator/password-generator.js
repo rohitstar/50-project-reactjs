@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 import './password-generator.css'
 import { faClipboard } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { text } from '@fortawesome/fontawesome-svg-core'
 
 const PasswordGenerator = () => {
   const [resultEl, setResultEl] = useState()
@@ -11,53 +10,6 @@ const PasswordGenerator = () => {
   const [uppercaseEl, setUppercaseEl] = useState(true)
   const [numbersEl, setNumbersEl] = useState(true)
   const [symbolsEl, setSymbolsEl] = useState(true)
-  //   const [generateEl, setGenerateEl] = useState()
-  const [clipboardEl, setClipboardEl] = useState()
-
-  //   function getToCopyClipboard() {
-  //     setClipboardEl(resultEl)
-  //     if (!clipboardEl) {
-  //       return
-  //     }
-
-  //     document.body.appendChild(clipboardEl)
-  //     clipboardEl.select()
-  //     document.execCommand('copy')
-  //     clipboardEl.remove()
-  //     alert('Password Copied to clipboard')
-  //   }
-
-  //   const [copySuccess, setCopySuccess] = useState('')
-  //   const textAreaRef = useRef(null)
-
-  //   function copyToClipboard(e) {
-  //     textAreaRef.current.select()
-  //     document.execCommand('copy')
-  //     // This is just personal preference.
-  //     // I prefer to not show the whole text area selected.
-  //     e.target.focus()
-  //     setCopySuccess('Copied!')
-  //   }
-
-  //   useEffect(() => {
-  //     const clipboardEl = document.getElementById('clipboard')
-
-  //     clipboardEl.addEventListener('click', () => {
-  //       const textarea = document.createElement('textarea')
-  //       const password = resultEl.innerText
-
-  //       if (!password) {
-  //         return
-  //       }
-
-  //       textarea.value = password
-  //       document.body.appendChild(textarea)
-  //       textarea.select()
-  //       document.execCommand('copy')
-  //       textarea.remove()
-  //       alert('Password Copied to clipboard')
-  //     })
-  //   }, [])
 
   const randomFuncData = {
     lower: getRandomLower,
@@ -124,30 +76,19 @@ const PasswordGenerator = () => {
     return symbols[Math.floor(Math.random() * symbols.length)]
   }
 
-  //   console.log(randomFunc)
-
   return (
     <div className="App-password-generator">
       <div className="password-container">
         <h2 className="heading-h2">Password Generator</h2>
-        {/* {document.queryCommandSupported('copy') && ( */}
+
         <div className="result-container">
-          <span
-            // ref={textAreaRef}
-            id="result"
-          >
-            {resultEl}
-          </span>
-          {/* {clipboardEl} */}
-          <button
-            // onClick={getToCopyClipboard}
-            className="btn-password"
-            id="clipboard"
-          >
+          <span id="result">{resultEl}</span>
+
+          <button className="btn-password" id="clipboard">
             <FontAwesomeIcon icon={faClipboard} />
           </button>
         </div>
-        {/* )} */}
+
         <div className="settings">
           <div className="setting">
             <label>Password Length</label>

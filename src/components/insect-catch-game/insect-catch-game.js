@@ -1,12 +1,22 @@
-import React from 'react'
+import React, { useState } from 'react'
 import './insect-catch-game.css'
 
 const InsectCatchGame = () => {
+  const [selectUp, setSelectUp] = useState(false)
+
+  const getScreenUphandle = () => {
+    setSelectUp(true)
+  }
+
   return (
     <div className="App-catch-game">
-      <div className="screen-game">
+      <div className={`screen-game ${selectUp ? 'up' : ''}`}>
         <h1 className="game-heading">Catch The Insect</h1>
-        <div className="btn-game" id="start-btn-game">
+        <div
+          onClick={getScreenUphandle}
+          className="btn-game"
+          id="start-btn-game"
+        >
           Play Game
         </div>
       </div>

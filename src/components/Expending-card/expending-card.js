@@ -15,7 +15,7 @@ export default class ExpendingCard extends React.Component {
               key={index}
               // className={`panel ${'active' === data.active ? 'active' : ''}`}
               className={`panel ${
-                this.state.selected == index ? 'active' : ''
+                this.state.selected === index ? 'active' : ''
               }`}
               onClick={() => this.setState({ selected: index })}
               style={{ backgroundImage: `url(${data.url})` }}

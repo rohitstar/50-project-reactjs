@@ -6,8 +6,8 @@ const CustomRangeSlider = () => {
   const [range, setRange] = useState()
 
   useEffect(() => {
-    setRange(`${Number((value / 2) * 4.5)}px`)
-    console.log(`${Number((value / 2) * 4.5)}px`)
+    setRange(() => `${Number((value / 2) * 4.5)}px`)
+    // console.log(`${Number((value / 2) * 4.5)}px`)
   })
 
   return (

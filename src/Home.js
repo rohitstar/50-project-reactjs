@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom'
 const Home = () => {
   return (
     <>
+      <div
+        style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}
+      >
+        <h1>50 React Projects</h1>
+      </div>
+
       <div style={{ display: 'flex', flexDirection: 'column', margin: '50px' }}>
         <Link to="/expending-card">01 Expending Card</Link>
         <Link to="/progress-step">02 Progress Steps</Link>

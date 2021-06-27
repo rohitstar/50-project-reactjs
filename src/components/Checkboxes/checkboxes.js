@@ -1,60 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './checkboxes.css'
 
 const Checkboxes = () => {
-  const [good, setGood] = useState()
-  const [cheap, setCheap] = useState()
-  const [fast, setFast] = useState()
-  const [toggle, setToggle] = useState()
-
-  //   const getChangeGoodToggle = () => {
-  //     if (good === cheap) {
-  //       setFast(false)
-  //     }
-  //     // setGood(true)
-  //     // setCheap(true)
-  //     console.log(fast)
-  //   }
-
-  //   const getChangeCheapToggle = () => {
-  //     if (cheap === fast) {
-  //       setCheap(false)
-  //     }
-  //     // setGood(true)
-  //     // setFast(true)
-  //     console.log(cheap)
-  //   }
-
-  //   const getChangeFastToggle = () => {
-  //     if (fast === good) {
-  //       setGood(false)
-  //     }
-  //     // setGood(false)
-  //     // setCheap(true)
-  //     console.log(good)
-  //   }
-  /////////////////////////////////////////////////////////////
-  //   function getCheckboxData(e) {
-  //     setToggle(e.target)
-
-  //     if (good && cheap && fast) {
-  //       if (good === toggle) {
-  //         fast = false
-  //         console.log(good, cheap, fast)
-  //       }
-
-  //       if (cheap === toggle) {
-  //         good = false
-  //         console.log(good, cheap, fast)
-  //       }
-
-  //       if (fast === toggle) {
-  //         cheap = false
-  //         console.log(good, cheap, fast)
-  //       }
-  //     }
-  //   }
-
   useEffect(() => {
     const toggles = document.querySelectorAll('.toggle-checkbox')
     const good = document.querySelector('#good')

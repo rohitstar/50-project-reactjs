@@ -13,10 +13,7 @@ const ContentPlaceholder = () => {
 
   const getData = () => {
     setHeader(
-      <img
-        src="https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80"
-        alt="Image"
-      />
+      'https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80'
     )
     setTitle('Lorem ipsum dolor sit')
     setExcerpt('Lorem ipsum dolor sit nam in, assumenda accusantium at!')
@@ -38,7 +35,7 @@ const ContentPlaceholder = () => {
           className={`card-header ${animated_bgs ? 'animated-bg' : ''}`}
           id="header"
         >
-          {header}
+          <img src={header} alt="Image" />
         </div>
 
         <div className="card-container">

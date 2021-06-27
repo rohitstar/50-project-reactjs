@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import './animation-countdown.css'
 
 const countDown = ['3', '2', '1', '0']

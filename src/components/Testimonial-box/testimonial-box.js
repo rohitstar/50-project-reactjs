@@ -68,6 +68,7 @@ const TestimonialBox = () => {
 
   useEffect(() => {
     setInterval(() => {
+      let idx = 0
       setIdx((prev) => prev + 1)
       console.log(idx, testimonials.length)
 

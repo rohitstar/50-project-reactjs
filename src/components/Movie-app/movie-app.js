@@ -3,7 +3,7 @@ import './movie-app.css'
 
 const MovieApp = () => {
   const [isMovie, setIsMovie] = useState([])
-  const [searchValue, setSearchValue] = useState('')
+  const [searchValue, setSearchValue] = useState()
   const [q, setQ] = useState('')
 
   const API_URL =
@@ -24,7 +24,7 @@ const MovieApp = () => {
     const data = await res.json()
     // console.log(data.results)
     setIsMovie(data.results)
-  })
+  }, [setIsMovie])
 
   function getVoteRate(vote) {
     if (vote >= 8) {

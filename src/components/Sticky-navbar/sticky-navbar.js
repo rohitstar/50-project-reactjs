@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom'
 import './sticky-navbar.css'
 
 const StickyNavbar = () => {
@@ -24,22 +25,22 @@ const StickyNavbar = () => {
       >
         <div className="container-sticky">
           <h1 className="logo-sticky">
-            <a href="/index.html">My Website</a>
+            <Link href="/index.html">My Website</Link>
           </h1>
           <ul>
             <li>
-              <a href="#" className={selected ? 'active' : ''}>
+              <Link href="#" className={selected ? 'active' : ''}>
                 Home
-              </a>
+              </Link>
             </li>
             <li>
-              <a href="#">About</a>
+              <Link href="#">About</Link>
             </li>
             <li>
-              <a href="#">Service</a>
+              <Link href="#">Service</Link>
             </li>
             <li>
-              <a href="#">Contect</a>
+              <Link href="#">Contect</Link>
             </li>
           </ul>
         </div>

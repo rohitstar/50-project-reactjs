@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './split-landing-page.css'
+import { Link } from 'react-router-dom'
 // import { SCROLL_CONTENT } from '../../constants/imageConstant'
 
 const SplitLandingPage = () => {
@@ -43,15 +44,11 @@ const SplitLandingPage = () => {
       >
         <div className="split left">
           <h1 className="split-heading">Play Rammy Game</h1>
-          <a href="#" className="btn-split">
-            Buy Now
-          </a>
+          <Link className="btn-split">Buy Now</Link>
         </div>
         <div className="split right">
           <h1 className="split-heading">XBox Series Now</h1>
-          <a href="#" className="btn-split">
-            Buy Now
-          </a>
+          <Link className="btn-split">Buy Now</Link>
         </div>
       </div>
     </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import './animation-navigation.css'
+import { Link } from 'react-router-dom'
 
 const AnimationNavigation = () => {
   const [selected, setSelected] = useState(false)
@@ -14,16 +15,16 @@ const AnimationNavigation = () => {
         <nav className={`nav-animated ${selected ? 'active' : ''}`} id="nav">
           <ul>
             <li>
-              <a href="#">Home</a>
+              <Link>Home</Link>
             </li>
             <li>
-              <a href="#">About</a>
+              <Link>About</Link>
             </li>
             <li>
-              <a href="#">Works</a>
+              <Link>Works</Link>
             </li>
             <li>
-              <a href="#">Contact</a>
+              <Link>Contact</Link>
             </li>
           </ul>
 
