@@ -1,6 +1,8 @@
 import './App.css'
 import Home from './Home'
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
+import CustomCounter from './components/custom-hooks-counter/custom-counter'
+
 import ProgressSteps from './components/Progress-steps/progress-step'
 import Expending from './components/Expending-card/expending-card'
 import RotatingNavigation from './components/Rotating-navigation/rotating-navigation'
@@ -51,6 +53,7 @@ import TestimonialBox from './components/Testimonial-box/testimonial-box'
 import RandomImageFeed from './components/Random-image-feed/random-image-feed'
 import TodoList from './components/Todo-list/todo-list'
 import InsectCatchGame from './components/insect-catch-game/insect-catch-game'
+import Card from './card-projects/card-project'
 
 function App() {
   return (
@@ -75,6 +78,10 @@ function App() {
 
         <Route path="/hidden-search-widget">
           <HiddenSearchWidget />
+        </Route>
+
+        <Route path="/custom-counter">
+          <CustomCounter />
         </Route>
 
         <Route path="/blurry-loading">
@@ -255,6 +262,10 @@ function App() {
 
         <Route path="/insect-catch-game">
           <InsectCatchGame />
+        </Route>
+
+        <Route path="/card-project">
+          <Card />
         </Route>
       </Switch>
     </Router>

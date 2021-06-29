@@ -9,7 +9,7 @@
   box-sizing: border-box;
 }
 
-.App-background-slider {
+.App-background-slider-bg {
   /* background: #5aa3df; */
   font-family: 'Poppins', sans-serif;
   display: flex;
@@ -25,7 +25,7 @@
   transition: 0.4s;
 }
 
-.App-background-slider::before {
+.App-background-slider-bg::before {
   content: '';
   position: absolute;
   top: 0;
@@ -36,7 +36,7 @@
   /* z-index: -1; */
 }
 
-.slider-container {
+.slider-container-bg {
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   height: 70vh;
   width: 70vw;
@@ -44,7 +44,7 @@
   overflow: hidden;
 }
 
-.slide {
+.slide-bg {
   opacity: 0;
   height: 100vh;
   width: 100vw;
@@ -57,7 +57,7 @@
   z-index: 1;
 }
 
-.slide.active {
+.slide-bg.active {
   opacity: 1;
 }
 

@@ -3,34 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import React, { useState } from 'react'
 import './background-slider.css'
 
-// const slideImage = [
-//   {
-//     id: 1,
-//     slide_Image:
-//       'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
-//   },
-//   {
-//     id: 2,
-//     slide_Image:
-//       'https://images.unsplash.com/photo-1511593358241-7eea1f3c84e5?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1934&q=80',
-//   },
-//   {
-//     id: 3,
-//     slide_Image:
-//       'https://images.unsplash.com/photo-1495467033336-2effd8753d51?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
-//   },
-//   {
-//     id: 4,
-//     slide_Image:
-//       'https://images.unsplash.com/photo-1522735338363-cc7313be0ae0?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2689&q=80',
-//   },
-//   {
-//     id: 5,
-//     slide_Image:
-//       'https://images.unsplash.com/photo-1559087867-ce4c91325525?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
-//   },
-// ]
-
 const slideImage = [
   'https://images.unsplash.com/photo-1549880338-65ddcdfd017b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80',
 
@@ -68,13 +40,13 @@ const BackgroundSlider = () => {
 
   return (
     <div
-      className="App-background-slider"
+      className="App-background-slider-bg"
       style={{ backgroundImage: 'url(' + slideImage[currentSlider] + ')' }}
     >
-      <div className="slider-container">
+      <div className="slider-container-bg">
         {slideImage.map((data, index) => (
           <div
-            className={`slide ${currentSlider === index ? 'active' : ''}`}
+            className={`slide-bg ${currentSlider === index ? 'active' : ''}`}
             style={{ backgroundImage: 'url(' + data + ')' }}
           ></div>
         ))}

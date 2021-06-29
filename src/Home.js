@@ -1,16 +1,103 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import './Home.css'
+import { PROJECT_DATA } from './constants/project-data'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faBehance,
+  faFacebook,
+  faGithub,
+  faInstagram,
+  faLinkedin,
+  faMedium,
+  faStackOverflow,
+  faTwitter,
+} from '@fortawesome/free-brands-svg-icons'
+import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 const Home = () => {
   return (
     <>
-      <div
-        style={{ display: 'flex', justifyContent: 'center', marginTop: '1rem' }}
-      >
-        <h1>50 React Projects</h1>
-      </div>
+      <div className="App-home">
+        <header className="header-our-profile">
+          <div className="resume">
+            <div className="profile-pic"></div>
+            <h1 className="header-name">I am Rohit Chauhan</h1>
 
-      <div style={{ display: 'flex', flexDirection: 'column', margin: '50px' }}>
+            <div className="professions">
+              <div className="profession">
+                <div className="circle-hole"></div>
+                <p>Web Developer</p>
+              </div>
+              <div className="profession">
+                <p>Android Developer</p>
+              </div>
+              <div className="profession">
+                <p>Graphics Designer</p>
+              </div>
+              <div className="profession">
+                <p>UI/UX Designer</p>
+              </div>
+            </div>
+            <div className="social-icons">
+              <div className="social-icon">
+                <FontAwesomeIcon icon={faFacebook} />
+              </div>
+              <div className="social-icon">
+                <FontAwesomeIcon icon={faGithub} />
+              </div>
+              <div className="social-icon">
+                <FontAwesomeIcon icon={faLinkedin} />
+              </div>
+              <div className="social-icon">
+                <FontAwesomeIcon icon={faBehance} />
+              </div>
+              <div className="social-icon">
+                <FontAwesomeIcon icon={faTwitter} />
+              </div>
+              <div className="social-icon">
+                <FontAwesomeIcon icon={faInstagram} />
+              </div>
+              <div className="social-icon">
+                <FontAwesomeIcon icon={faMedium} />
+              </div>
+              <div className="social-icon">
+                <FontAwesomeIcon icon={faStackOverflow} />
+              </div>
+            </div>
+            <div className="email">
+              <FontAwesomeIcon icon={faEnvelope} />
+              &nbsp; rohitstarrc@gmail.com
+            </div>
+          </div>
+        </header>
+
+        <div className="main-header">
+          <h1>React Projects</h1>
+        </div>
+
+        <main className="main-project">
+          {PROJECT_DATA.ourProject.map((item, index) => (
+            <div key={index} className="movie-app-project">
+              <Link to={item.link}>
+                <img src={item.url} alt={item.title} />
+                <div className="movie-info-project">
+                  <h3>{item.title}</h3>
+                  {/* <p>{item.des}</p> */}
+                </div>
+              </Link>
+            </div>
+          ))}
+        </main>
+      </div>
+      {/* 
+      <div
+        style={{
+          display: 'flex',
+          flexDirection: 'column',
+          margin: '50px',
+        }}
+      >
         <Link to="/expending-card">01 Expending Card</Link>
         <Link to="/progress-step">02 Progress Steps</Link>
         <Link to="/rotating-navigation">03 Rotating Navigation</Link>
@@ -61,7 +148,8 @@ const Home = () => {
         <Link to="/random-image-feed">48 Random Image Feed</Link>
         <Link to="/todo-list">49 Todo List</Link>
         <Link to="/insect-catch-game">50 Insect Catch Game</Link>
-      </div>
+        <Link to="/card-project">Card</Link>
+      </div> */}
     </>
   )
 }

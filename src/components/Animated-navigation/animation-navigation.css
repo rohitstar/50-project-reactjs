@@ -25,15 +25,16 @@
 
 .nav-animated {
   background-color: #fff;
-  padding: 20px;
-  width: 140px;
+  padding: 0 20px;
+  width: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 3px;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transition: width 0.6s linear;
-  margin-bottom: 240px;
+  margin-bottom: 300px;
+  left: 30%;
 }
 
 .nav-animated.active {
