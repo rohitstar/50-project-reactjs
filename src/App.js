@@ -33,7 +33,7 @@ import GithubProfile from './components/github-profile/github-profile'
 import ToastsNotification from './components/Toast-notification/toast-notification'
 
 import AutoTextEffect from './components/Auto-text-effect/auto-text-effect'
-// import PasswordGenerator from './components/Password-generator/password-generator'
+import PasswordGenerator from './components/Password-generator/password-generator'
 import Checkboxes from './components/Checkboxes/checkboxes'
 import NoteApp from './components/Note-app/note-app'
 import AnimationCountdown from './components/Animation-countdown/animation-countdown'
@@ -52,7 +52,7 @@ import QuizApp from './components/Quiz-app/quiz-app'
 import TestimonialBox from './components/Testimonial-box/testimonial-box'
 import RandomImageFeed from './components/Random-image-feed/random-image-feed'
 import TodoList from './components/Todo-list/todo-list'
-import InsectCatchGame from './components/insect-catch-game/insect-catch-game'
+// import InsectCatchGame from './components/insect-catch-game/insect-catch-game'
 import Card from './card-projects/card-project'
 
 function App() {
@@ -184,9 +184,9 @@ function App() {
           <AutoTextEffect />
         </Route>
 
-        {/* <Route path="/password-generator">
+        <Route path="/password-generator">
           <PasswordGenerator />
-        </Route> */}
+        </Route>
 
         <Route path="/checkboxes">
           <Checkboxes />
@@ -260,9 +260,9 @@ function App() {
           <TodoList />
         </Route>
 
-        <Route path="/insect-catch-game">
+        {/* <Route path="/insect-catch-game">
           <InsectCatchGame />
-        </Route>
+        </Route> */}
 
         <Route path="/card-project">
           <Card />

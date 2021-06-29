@@ -3,7 +3,7 @@ import './verify-account.css'
 
 const VerifyAccount = () => {
   useEffect(() => {
-    const codes = document.querySelectorAll('.code')
+    const codes = document.querySelectorAll('.verify-code')
     codes[0].focus()
     codes.forEach((code, idx) => {
       code.addEventListener('keydown', (e) => {

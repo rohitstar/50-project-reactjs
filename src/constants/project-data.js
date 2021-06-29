@@ -41,7 +41,13 @@ import quiz_app from '../images/quiz-app.png'
 import testimonial from '../images/testimonial.png'
 import random_image from '../images/random-image.png'
 import todo_list from '../images/todo-list.png'
-import insect_catch_game from '../images/insect-catch-game.png'
+// import insect_catch_game from '../images/insect-catch-game.png'
+
+import BlurryLoading from '../images/blurry-loading.png'
+import stickyNavbar from '../images/sticky-navbar.png'
+import CustomHookCounter from '../images/custom-hook-counter.png'
+import VerifyAccount from '../images/verify-account.png'
+import PasswordGenerator from '../images/password-generator.png'
 
 export const PROJECT_DATA = {
   ourProject: [
@@ -49,7 +55,7 @@ export const PROJECT_DATA = {
       id: 51,
       title: 'Custom Hooks Counter',
       des: 'all',
-      url: expending_card,
+      url: CustomHookCounter,
       link: '/custom-counter',
     },
     {
@@ -60,11 +66,25 @@ export const PROJECT_DATA = {
       link: '/expending-card',
     },
     {
+      id: 49,
+      title: 'Todo List',
+      des: 'all',
+      url: todo_list,
+      link: '/todo-list',
+    },
+    {
       id: 2,
       title: 'Progress Steps',
       des: 'all',
       url: progress,
       link: '/progress-step',
+    },
+    {
+      id: 19,
+      title: 'Clock Theme',
+      des: 'all',
+      url: clock_theme,
+      link: '/clock-theme',
     },
     {
       id: 3,
@@ -74,11 +94,32 @@ export const PROJECT_DATA = {
       link: '/rotating-navigation',
     },
     {
+      id: 33,
+      title: 'Note App',
+      des: 'all',
+      url: note_app,
+      link: '/note-app',
+    },
+    {
       id: 4,
       title: 'Hidden Search',
       des: 'all',
       url: hidden_search,
       link: '/hidden-search-widget',
+    },
+    {
+      id: 26,
+      title: 'Double Vertical',
+      des: 'all',
+      url: double_vertical,
+      link: '/double-vertical',
+    },
+    {
+      id: 39,
+      title: 'Password Strength Background',
+      des: 'all',
+      url: password_strength,
+      link: '/password-strength',
     },
     {
       id: 5,
@@ -88,18 +129,18 @@ export const PROJECT_DATA = {
       link: '/scroll-animation',
     },
     {
-      id: 6,
-      title: 'Split Landing',
+      id: 23,
+      title: 'kinetic Loader',
       des: 'all',
-      url: split_landing,
-      link: '/split-landing',
+      url: kinetic_loader,
+      link: '/kinetic-loader',
     },
     {
       id: 7,
       title: 'Blurry',
       des: 'all',
-      url: scroll_animation,
-      link: '/blurry',
+      url: BlurryLoading,
+      link: '/blurry-loading',
     },
     {
       id: 8,
@@ -107,6 +148,13 @@ export const PROJECT_DATA = {
       des: 'all',
       url: form_wave,
       link: '/form-wave-animation',
+    },
+    {
+      id: 42,
+      title: 'Live User Filter',
+      des: 'all',
+      url: live_user_filter,
+      link: '/live-user-filter',
     },
     {
       id: 9,
@@ -136,13 +184,7 @@ export const PROJECT_DATA = {
       url: faq_collapse,
       link: '/faq-collapse',
     },
-    {
-      id: 13,
-      title: 'Random Choice Picker',
-      des: 'all',
-      url: random_choice,
-      link: '/random-choice-picker',
-    },
+
     {
       id: 14,
       title: 'Animated Navigation',
@@ -164,13 +206,13 @@ export const PROJECT_DATA = {
       url: drink_water,
       link: '/drink-water',
     },
-    {
-      id: 17,
-      title: 'Movies App',
-      des: 'all',
-      url: scroll_animation,
-      link: '/movie-app',
-    },
+    // {
+    //   id: 17,
+    //   title: 'Movies App',
+    //   des: 'all',
+    //   url: scroll_animation,
+    //   link: '/movie-app',
+    // },
     {
       id: 18,
       title: 'Background Slider',
@@ -179,12 +221,13 @@ export const PROJECT_DATA = {
       link: '/background-slider',
     },
     {
-      id: 19,
-      title: 'Clock Theme',
+      id: 13,
+      title: 'Random Choice Picker',
       des: 'all',
-      url: clock_theme,
-      link: '/clock-theme',
+      url: random_choice,
+      link: '/random-choice-picker',
     },
+
     {
       id: 20,
       title: 'Button Ripple Effect',
@@ -206,13 +249,7 @@ export const PROJECT_DATA = {
       url: drawing_app,
       link: '/drawing-app',
     },
-    {
-      id: 23,
-      title: 'kinetic Loader',
-      des: 'all',
-      url: kinetic_loader,
-      link: '/kinetic-loader',
-    },
+
     {
       id: 24,
       title: 'Content Placeholder',
@@ -221,19 +258,20 @@ export const PROJECT_DATA = {
       link: '/content-placeholder',
     },
     {
+      id: 6,
+      title: 'Split Landing',
+      des: 'all',
+      url: split_landing,
+      link: '/split-landing',
+    },
+    {
       id: 25,
       title: 'Sticky Navbar',
       des: 'all',
-      url: scroll_animation,
+      url: stickyNavbar,
       link: '/sticky-navbar',
     },
-    {
-      id: 26,
-      title: 'Double Vertical',
-      des: 'all',
-      url: double_vertical,
-      link: '/double-vertical',
-    },
+
     {
       id: 27,
       title: 'Github Profile',
@@ -255,18 +293,18 @@ export const PROJECT_DATA = {
       url: auto_text_effect,
       link: '/auto-text-effect',
     },
-    {
-      id: 30,
-      title: 'Auto Text Effect',
-      des: 'all',
-      url: auto_text_effect,
-      link: '/auto-text-effect',
-    },
+    // {
+    //   id: 30,
+    //   title: 'Auto Text Effect',
+    //   des: 'all',
+    //   url: auto_text_effect,
+    //   link: '/auto-text-effect',
+    // },
     {
       id: 31,
       title: 'Password Generator',
       des: 'all',
-      url: scroll_animation,
+      url: PasswordGenerator,
       link: '/password-generator',
     },
     {
@@ -276,13 +314,7 @@ export const PROJECT_DATA = {
       url: checkboxes,
       link: '/checkboxes',
     },
-    {
-      id: 33,
-      title: 'Note App',
-      des: 'all',
-      url: note_app,
-      link: '/note-app',
-    },
+
     {
       id: 34,
       title: 'Count Down',
@@ -318,13 +350,7 @@ export const PROJECT_DATA = {
       url: mobile_app_navigation,
       link: '/mobile-app-navigation',
     },
-    {
-      id: 39,
-      title: 'Password Strength Background',
-      des: 'all',
-      url: password_strength,
-      link: '/password-strength',
-    },
+
     {
       id: 40,
       title: '3D Background Boxes',
@@ -336,16 +362,10 @@ export const PROJECT_DATA = {
       id: 41,
       title: 'Verify Account UI',
       des: 'all',
-      url: scroll_animation,
+      url: VerifyAccount,
       link: '/verify-account',
     },
-    {
-      id: 42,
-      title: 'Live User Filter',
-      des: 'all',
-      url: live_user_filter,
-      link: '/live-user-filter',
-    },
+
     {
       id: 43,
       title: 'Feedback UI Design',
@@ -388,19 +408,13 @@ export const PROJECT_DATA = {
       url: random_image,
       link: '/random-image-feed',
     },
-    {
-      id: 49,
-      title: 'Todo List',
-      des: 'all',
-      url: todo_list,
-      link: '/todo-list',
-    },
-    {
-      id: 50,
-      title: 'Insect Catch Game',
-      des: 'all',
-      url: insect_catch_game,
-      link: '/insect-catch-game',
-    },
+
+    // {
+    //   id: 50,
+    //   title: 'Insect Catch Game',
+    //   des: 'all',
+    //   url: insect_catch_game,
+    //   link: '/insect-catch-game',
+    // },
   ],
 }
