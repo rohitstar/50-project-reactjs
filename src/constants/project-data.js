@@ -47,7 +47,7 @@ import BlurryLoading from '../images/blurry-loading.png'
 import stickyNavbar from '../images/sticky-navbar.png'
 import CustomHookCounter from '../images/custom-hook-counter.png'
 import VerifyAccount from '../images/verify-account.png'
-import PasswordGenerator from '../images/password-generator.png'
+// import PasswordGenerator from '../images/password-generator.png'
 
 export const PROJECT_DATA = {
   ourProject: [
@@ -300,13 +300,13 @@ export const PROJECT_DATA = {
     //   url: auto_text_effect,
     //   link: '/auto-text-effect',
     // },
-    {
-      id: 31,
-      title: 'Password Generator',
-      des: 'all',
-      url: PasswordGenerator,
-      link: '/password-generator',
-    },
+    // {
+    //   id: 31,
+    //   title: 'Password Generator',
+    //   des: 'all',
+    //   url: PasswordGenerator,
+    //   link: '/password-generator',
+    // },
     {
       id: 32,
       title: 'Checkboxes',

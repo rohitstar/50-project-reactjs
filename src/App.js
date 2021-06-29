@@ -33,7 +33,7 @@ import GithubProfile from './components/github-profile/github-profile'
 import ToastsNotification from './components/Toast-notification/toast-notification'
 
 import AutoTextEffect from './components/Auto-text-effect/auto-text-effect'
-import PasswordGenerator from './components/Password-generator/password-generator'
+// import PasswordGenerator from './components/Password-generator/password-generator'
 import Checkboxes from './components/Checkboxes/checkboxes'
 import NoteApp from './components/Note-app/note-app'
 import AnimationCountdown from './components/Animation-countdown/animation-countdown'
@@ -184,9 +184,9 @@ function App() {
           <AutoTextEffect />
         </Route>
 
-        <Route path="/password-generator">
+        {/* <Route path="/password-generator">
           <PasswordGenerator />
-        </Route>
+        </Route> */}
 
         <Route path="/checkboxes">
           <Checkboxes />
