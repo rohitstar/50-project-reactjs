@@ -47,10 +47,27 @@ import BlurryLoading from '../images/blurry-loading.png'
 import stickyNavbar from '../images/sticky-navbar.png'
 import CustomHookCounter from '../images/custom-hook-counter.png'
 import VerifyAccount from '../images/verify-account.png'
+import Typewriter from '../images/typewriter.png'
+import Draggable from '../images/draggable.png'
+
 // import PasswordGenerator from '../images/password-generator.png'
 
 export const PROJECT_DATA = {
   ourProject: [
+    {
+      id: 53,
+      title: 'Draggable List',
+      des: 'all',
+      url: Draggable,
+      link: '/draggable-list',
+    },
+    {
+      id: 52,
+      title: 'Typewriter Speed',
+      des: 'all',
+      url: Typewriter,
+      link: '/typewriter',
+    },
     {
       id: 51,
       title: 'Custom Hooks Counter',

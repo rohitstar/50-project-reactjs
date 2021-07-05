@@ -52,6 +52,8 @@ import QuizApp from './components/Quiz-app/quiz-app'
 import TestimonialBox from './components/Testimonial-box/testimonial-box'
 import RandomImageFeed from './components/Random-image-feed/random-image-feed'
 import TodoList from './components/Todo-list/todo-list'
+import Typewriter from './components/Typewriter/typewriter'
+import Draggable from './components/Draggable-list/draggable-list'
 // import InsectCatchGame from './components/insect-catch-game/insect-catch-game'
 import Card from './card-projects/card-project'
 
@@ -62,6 +64,14 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Home />
+        </Route>
+
+        <Route path="/typewriter">
+          <Typewriter />
+        </Route>
+
+        <Route path="/draggable-list">
+          <Draggable />
         </Route>
 
         <Route path="/expending-card">

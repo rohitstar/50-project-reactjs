@@ -27,7 +27,7 @@ const PasswordGenerator = () => {
 
     // console.log(uppercaseEl, lowercaseEl, numbersEl, symbolsEl)
 
-    setResultEl(
+    setResultEl(() =>
       generatePassword(uppercaseEl, lowercaseEl, numbersEl, symbolsEl, lengthEl)
     )
 

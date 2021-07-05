@@ -5,13 +5,8 @@ import { PROJECT_DATA } from './constants/project-data'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import {
   faBehance,
-  faFacebook,
   faGithub,
-  faInstagram,
   faLinkedin,
-  faMedium,
-  faStackOverflow,
-  faTwitter,
 } from '@fortawesome/free-brands-svg-icons'
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
@@ -40,30 +35,15 @@ const Home = () => {
               </div>
             </div>
             <div className="social-icons">
-              <div className="social-icon">
-                <FontAwesomeIcon icon={faFacebook} />
-              </div>
-              <div className="social-icon">
+              <Link href="" className="social-icon">
                 <FontAwesomeIcon icon={faGithub} />
-              </div>
-              <div className="social-icon">
+              </Link>
+              <Link href="" className="social-icon">
                 <FontAwesomeIcon icon={faLinkedin} />
-              </div>
-              <div className="social-icon">
+              </Link>
+              <Link href="" className="social-icon">
                 <FontAwesomeIcon icon={faBehance} />
-              </div>
-              <div className="social-icon">
-                <FontAwesomeIcon icon={faTwitter} />
-              </div>
-              <div className="social-icon">
-                <FontAwesomeIcon icon={faInstagram} />
-              </div>
-              <div className="social-icon">
-                <FontAwesomeIcon icon={faMedium} />
-              </div>
-              <div className="social-icon">
-                <FontAwesomeIcon icon={faStackOverflow} />
-              </div>
+              </Link>
             </div>
             <div className="email">
               <FontAwesomeIcon icon={faEnvelope} />

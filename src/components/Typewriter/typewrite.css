@@ -1,0 +1,81 @@
+.App-typewiter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  height: 100vh;
+  background: #7d5fff;
+  color: #fff;
+  /* max-width: 1000px; */
+}
+
+.typewiter-correct {
+  color: rgb(124, 175, 47);
+  background-color: rgb(236, 233, 233);
+  font-weight: bold;
+}
+
+.typewiter-incorrect {
+  color: red;
+  background-color: rgb(236, 233, 233);
+  font-weight: bold;
+}
+
+.typewiter-active {
+  font-weight: bold;
+}
+
+.typewiter-heading {
+  font-size: 50px;
+}
+
+.typewiter-time,
+.typewiter-speed {
+  position: absolute;
+  top: 30px;
+  font-size: 30px;
+}
+
+.typewiter-time {
+  left: 50px;
+}
+
+.typewiter-speed {
+  right: 50px;
+}
+
+.typewiter-text {
+  background-color: #fff;
+  /* border: 3px solid #000; */
+  margin-top: 2rem;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.25);
+  color: #000;
+  max-width: 1000px;
+  text-align: center;
+  font-size: 20px;
+}
+
+.typewiter-input {
+  width: 100%;
+  margin-top: 3rem;
+  height: 50px;
+  /* border-radius: 10px; */
+  border: none;
+  /* border-bottom: 1px solid rgb(88, 87, 87); */
+  font-size: 25px;
+  padding-left: 20px;
+}
+
+.typewiter-input:focus {
+  outline: none;
+}
+
+.typewiter-time-over {
+  font-size: 35px;
+}
+
+.typewiter-completeTime {
+  font-size: 50px;
+}
