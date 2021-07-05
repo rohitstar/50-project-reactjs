@@ -1,16 +1,11 @@
 import React, { useState, useEffect, useRef } from 'react'
 import './typewrite.css'
 
-// mango papaya apple banana orange java react react native boostrap html css typing speed data
 const text = () =>
-  `Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-   Ut enim ad minim veniam, quis nostrud exercitation ullamco 
-   laboris nisi ut aliquip ex ea commodo consequat. Duis aute 
-   irure dolor in reprehenderit in voluptate velit esse cillum
-    dolore eu fugiat nulla pariatur. Excepteur sint occaecat 
-    cupidatat non proident, sunt in culpa qui officia deserunt 
-    mollit anim id est laborum.`.split(' ')
-// .sort(() => (Math.random() > 0.5 ? 1 : -1))
+  `I had never seen a house on fire before, so, one evening when I heard fire engines with loud alarm bells rushing past my house. I quickly ran out and, a few streets away, joined a large crowd of people.
+   We could see the fire only from a distance because the police would not allow any one near the building on fire.`.split(
+    ' '
+  )
 
 const WordChange = React.memo(function WordChange(props) {
   const { texted, active, correct } = props
@@ -30,8 +25,6 @@ const WordChange = React.memo(function WordChange(props) {
   return <span>{texted} </span>
 })
 
-// WordChange = React.memo(WordChange)
-
 function TypingSpeed() {
   const [Input, setInput] = useState('')
   const writingText = useRef(text())
@@ -40,12 +33,9 @@ function TypingSpeed() {
   const [activeWord, setActiveWord] = useState(0)
   const [correctWord, setCorrectWord] = useState([])
   const [completed, setCompleted] = useState(true)
-  //   console.log(writingText.current)
 
   function Counter(startCounted) {
     const [timeEl, setTimeEl] = useState(0)
-    // const { startCounted, correctWords } = props
-    //   const [completedTime, setCompletedTime] = useState(false)
 
     useEffect(() => {
       let countId
@@ -120,11 +110,6 @@ function TypingSpeed() {
   return (
     <div className="App-typewiter">
       <div className="typewiter-container">
-        {/* <Counter
-        startCounted={startCounting}
-        correctWords={correctWord.filter(Boolean).length}
-        completed={completed}
-      /> */}
         {Counter(startCounting)}
 
         <div>
@@ -132,16 +117,12 @@ function TypingSpeed() {
 
           <div className="typewiter-text">
             {writingText.current.map((text, index) => {
-              //   if (index === activeWord) {
-              //     return <b>{text} </b>
-              //   }
               return (
                 <WordChange
                   key={index}
                   texted={text}
                   active={index === activeWord}
                   correct={correctWord[index]}
-                  //   incorrect={false}
                 />
               )
             })}
