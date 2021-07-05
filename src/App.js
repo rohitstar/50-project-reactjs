@@ -62,10 +62,6 @@ function App() {
     // <div className="App">
     <Router>
       <Switch>
-        <Route path="/" exact>
-          <Home />
-        </Route>
-
         <Route path="/typewriter">
           <Typewriter />
         </Route>
@@ -276,6 +272,9 @@ function App() {
 
         <Route path="/card-project">
           <Card />
+        </Route>
+        <Route path="/" exact>
+          <Home />
         </Route>
       </Switch>
     </Router>
