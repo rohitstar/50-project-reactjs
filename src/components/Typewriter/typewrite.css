@@ -32,16 +32,16 @@
 .typewiter-time,
 .typewiter-speed {
   position: absolute;
-  top: 30px;
+  top: 100px;
   font-size: 30px;
 }
 
 .typewiter-time {
-  left: 50px;
+  left: 150px;
 }
 
 .typewiter-speed {
-  right: 50px;
+  right: 150px;
 }
 
 .typewiter-text {

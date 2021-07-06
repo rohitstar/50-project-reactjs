@@ -35,13 +35,13 @@ const Home = () => {
               </div>
             </div>
             <div className="social-icons">
-              <Link href="" className="social-icon">
+              <Link to="" className="social-icon">
                 <FontAwesomeIcon icon={faGithub} />
               </Link>
-              <Link href="" className="social-icon">
+              <Link to="" className="social-icon">
                 <FontAwesomeIcon icon={faLinkedin} />
               </Link>
-              <Link href="" className="social-icon">
+              <Link to="" className="social-icon">
                 <FontAwesomeIcon icon={faBehance} />
               </Link>
             </div>

@@ -1,0 +1,117 @@
+/* .btn-navbar {
+  cursor: pointer;
+  display: inline-block;
+  width: 100%;
+  background-color: #22254b;
+  padding: 10px;
+  font-size: 18px;
+  font-family: inherit;
+  border: 0;
+  border-radius: 5px;
+  transition: 0.3s ease;
+  box-shadow: 0px 10px 10px -10px rgba(0, 0, 0, 0.25);
+}
+
+.btn-navbar a {
+  color: #fff;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.btn-navbar a:focus {
+  outline: 0;
+}
+
+.btn-navbar:hover {
+  background-color: rgb(225, 221, 228);
+}
+
+.btn-navbar a:hover {
+  color: #22254b;
+}
+
+.btn-navbar:active {
+  transform: scale(1.2);
+  background-color: rgb(225, 221, 228);
+  color: #22254b;
+} */
+
+.navbar-nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbar-nav ul li {
+  --c: #fff;
+
+  font-size: 14px;
+  border: 0.1em solid var(--c);
+  border-radius: 0.3em;
+  width: 11em;
+  height: 3em;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: sans-serif;
+  letter-spacing: 0.1em;
+  text-align: center;
+  line-height: 3em;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+  transition: 0.5s;
+  margin: 1em;
+  cursor: pointer;
+  background-color: #22254b;
+  color: var(--c);
+}
+
+.navbar-nav ul li a {
+  text-decoration: none;
+  color: var(--c);
+}
+
+.navbar-nav ul li span {
+  position: absolute;
+  width: 25%;
+  height: 100%;
+  background-color: var(--c);
+  transform: translateY(150%);
+  border-radius: 50%;
+  left: calc((var(--n) - 1) * 25%);
+  transition: 0.5s;
+  transition-delay: calc((var(--n) - 1) * 0.1s);
+  z-index: -1;
+}
+
+.navbar-nav ul li a:hover {
+  color: #22254b;
+}
+
+.navbar-nav ul li:hover {
+  border: 0.1em solid #22254b;
+}
+
+.navbar-nav ul li:active {
+  transform: scale(1.2);
+}
+
+.navbar-nav ul li:hover span {
+  transform: translateY(0) scale(2);
+}
+
+.navbar-nav ul li span:nth-child(1) {
+  --n: 1;
+}
+
+.navbar-nav ul li span:nth-child(2) {
+  --n: 2;
+}
+
+.navbar-nav ul li span:nth-child(3) {
+  --n: 3;
+}
+
+.navbar-nav ul li span:nth-child(4) {
+  --n: 4;
+}
